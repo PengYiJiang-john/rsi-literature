@@ -1,0 +1,20 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><title>改写目标时用哪个目标判断改进 · RSI Literature</title><meta name="description" content="从经典理论到现代自修改系统，围绕价值、认识与学习机制，理解反馈为何支持进步，也可能维持错误。"><link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../../assets/styles.css"><script src="../../assets/search-index.js" defer></script><script src="../../assets/app.js" defer></script></head>
+<body data-lang="zh" data-root="../../"><a class="skip-link" href="#main">跳到正文</a>
+<header class="site-header"><a class="brand" href="../../zh/index.html"><span class="brand-mark" aria-hidden="true">R</span><span>RSI <span class="brand-detail">/ Literature</span></span></a>
+<nav class="top-nav" aria-label="主导航"><a href="../../zh/review.html">主综述</a><a href="../../zh/library.html">阅读地图</a></nav>
+<div class="header-actions"><button class="search-open" type="button" aria-label="搜索文章" aria-haspopup="dialog" aria-controls="search-dialog"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>搜索文章</span><kbd>/</kbd></button><a class="language-switch" lang="en" hreflang="en" href="../../en/articles/utility-self-modification.html">EN</a></div></header><div class="page-layout with-toc"><main id="main"><details class="mobile-toc"><summary>本文目录</summary><a href="#section-1">三种评价方式</a><a href="#section-2">保持原目标最优性的条件</a><a href="#section-3">与改写训练奖励的区别</a><a href="#section-4">原文与阅读位置</a></details><a class="back-link" href="../library.html#value">← 返回阅读地图</a><article><header class="reading-header"><p class="eyebrow">价值与评价</p><h1>改写目标时用哪个目标判断改进</h1><div class="article-meta"><span>文献解读</span><span>2 分钟</span><a class="source-link" href="https://arxiv.org/abs/1605.03142v1" rel="noopener noreferrer">原论文 ↗</a></div></header><div class="prose"><p>如果系统把“完成任务才算成功”改成“所有结果都算成功”，自我评分就能提高，行为却未必改善。Everitt 等研究：主体可以修改目标时，应当用哪个目标评价这次修改？</p>
+<h2 id="section-1">三种评价方式</h2>
+<p>第一种按修改后的效用打分。此时，改成一个永远赋予满效用的目标，本身就可能成为最优修改。</p>
+<p>第二种沿用当前效用，却仍按未修改的行为方式预测未来。它保留原标准，但忽略修改会怎样改变后续行动。</p>
+<p>第三种既使用当前效用，也预测修改后的实际行为。论文称之为 realistic 评价：修改后会做什么，这些行为按现在的目标是否更好？</p>
+<h2 id="section-2">保持原目标最优性的条件</h2>
+<p>论文证明，在第三种规则下，若初始策略最优，且信念和初始效用满足修改独立性等条件，实际路径上的行为能够保持对原目标的最优性。</p>
+<p>修改独立性要求：外部行动与观测历史相同时，不能仅因内部程序的改写记录不同，就改变效用评价或环境信念。修改仍可通过改变未来行动影响结果。定理保持的是行为对原目标的最优性，不要求目标代码逐字不变。</p>
+<h2 id="section-3">与改写训练奖励的区别</h2>
+<p><a href="../../zh/articles/eureka.html">Eureka</a>改变训练奖励，却始终用同一个任务标准评价策略，比较的是实现既定目标的不同办法。效用自修改允许这个标准也改变，因此需要把评价规则与行为预测同时写清，才能判断收益来自更好的行为，还是换了一套评分方式。</p>
+<h2 id="section-4">原文与阅读位置</h2>
+<p>Everitt, Filan, Daswani 与 Hutter，2016，<em>Self-Modification of Policy and Utility Function in Rational Agents</em>，AGI；使用 arXiv v1。重点是 §3、Assumption 8、Definitions 9–12、Theorems 14–16。</p>
+<p><a rel="noopener noreferrer" href="https://arxiv.org/abs/1605.03142v1">原论文</a> · <a rel="noopener noreferrer" href="https://arxiv.org/html/1605.03142v1">全文</a></p>
+</div><section class="related-reading"><h2>接着阅读</h2><div><a href="eureka.html">Eureka 如何用反馈改写训练奖励<span aria-hidden="true">→</span></a></div></section></article></main><aside class="page-toc"><nav aria-label="本文目录"><span class="toc-label">本文目录</span><a href="#section-1">三种评价方式</a><a href="#section-2">保持原目标最优性的条件</a><a href="#section-3">与改写训练奖励的区别</a><a href="#section-4">原文与阅读位置</a></nav></aside></div>
+<footer class="site-footer"><span>RSI、反馈与学习动力学</span><span><a href="../../zh/library.html">阅读地图</a><span class="footer-dot">·</span><a href="../../zh/index.html#downloads">PDF</a></span></footer>
+<dialog id="search-dialog" aria-labelledby="search-title"><form method="dialog" class="search-heading"><h2 id="search-title">搜索文章</h2><button aria-label="关闭">×</button></form><label class="sr-only" for="search-input">搜索文章</label><input id="search-input" type="search" autocomplete="off" placeholder="标题、概念或文献"><p id="search-count" role="status" aria-live="polite"></p><ul id="search-results"></ul></dialog></body></html>

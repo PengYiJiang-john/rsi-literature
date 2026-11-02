@@ -1,0 +1,14 @@
+{
+  "html_pages": 73,
+  "articles_per_language": 33,
+  "local_references_checked": 1888,
+  "rendered_math_blocks": 42,
+  "search_entries": 66,
+  "pdfs": 4,
+  "default_language": "en",
+  "relative_project_paths": true,
+  "native_mathml": true,
+  "browser_visual_qa": "not run; no supported browser preview available",
+  "errors": [],
+  "warnings": []
+}

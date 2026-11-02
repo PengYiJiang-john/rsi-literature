@@ -1,0 +1,33 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><title>合并阶梯 简单特征怎样成为后续学习的起点 · RSI Literature</title><meta name="description" content="从经典理论到现代自修改系统，围绕价值、认识与学习机制，理解反馈为何支持进步，也可能维持错误。"><link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../../assets/styles.css"><script src="../../assets/search-index.js" defer></script><script src="../../assets/app.js" defer></script></head>
+<body data-lang="zh" data-root="../../"><a class="skip-link" href="#main">跳到正文</a>
+<header class="site-header"><a class="brand" href="../../zh/index.html"><span class="brand-mark" aria-hidden="true">R</span><span>RSI <span class="brand-detail">/ Literature</span></span></a>
+<nav class="top-nav" aria-label="主导航"><a href="../../zh/review.html">主综述</a><a href="../../zh/library.html">阅读地图</a></nav>
+<div class="header-actions"><button class="search-open" type="button" aria-label="搜索文章" aria-haspopup="dialog" aria-controls="search-dialog"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>搜索文章</span><kbd>/</kbd></button><a class="language-switch" lang="en" hreflang="en" href="../../en/articles/merged-staircase.html">EN</a></div></header><div class="page-layout with-toc"><main id="main"><details class="mobile-toc"><summary>本文目录</summary><a href="#section-1">一个目标提供起点 另一个没有</a><a href="#section-2">合并阶梯把逐级学习写成条件</a><a href="#section-3">成立条件怎样限制结论</a><a href="#section-4">这对理解能力增长有什么帮助</a><a href="#section-5">原论文与核验位置</a></details><a class="back-link" href="../library.html#epistemic">← 返回阅读地图</a><article><header class="reading-header"><p class="eyebrow">认识与交互</p><h1>合并阶梯 简单特征怎样成为后续学习的起点</h1><div class="article-meta"><span>文献解读</span><span>2 分钟</span><a class="source-link" href="https://proceedings.mlr.press/v178/abbe22a.html" rel="noopener noreferrer">原论文 ↗</a></div></header><div class="prose"><p>如果一个目标只在三个变量同时出现时才表现出规律，逐个查看变量可能什么也看不出来。若目标还包含单变量与两变量的规律，训练就多了逐步进入复杂结构的机会。Abbe 等研究的正是这种学习路径，而不只是网络能否表示目标函数。</p>
+<h2 id="section-1">一个目标提供起点 另一个没有</h2>
+<p>论文比较下面两种函数，其中每个输入变量独立地以相同概率取 +1 或 −1：</p>
+<div class="equation"><p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi mathvariant="normal">s</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">p</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><msub><mi>x</mi><mn>1</mn></msub><msub><mi>x</mi><mn>2</mn></msub><mo>+</mo><msub><mi>x</mi><mn>1</mn></msub><msub><mi>x</mi><mn>2</mn></msub><msub><mi>x</mi><mn>3</mn></msub><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>f</mi><mrow><mi mathvariant="normal">p</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">y</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mi>x</mi><mn>1</mn></msub><msub><mi>x</mi><mn>2</mn></msub><msub><mi>x</mi><mn>3</mn></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+f_{\mathrm{step}}(x)=x_1+x_1x_2+x_1x_2x_3,
+\qquad
+f_{\mathrm{parity}}(x)=x_1x_2x_3.
+</annotation></semantics></math></p>
+</div>
+<p>第一种目标包含 x₁。单看 x₁，就能发现它与输出有关；已经学到的特征又可能帮助训练识别后面的乘积项。第二种目标只有三变量乘积，单个变量或两变量乘积与输出都不相关，因而缺少同样的低阶信号。</p>
+<h2 id="section-2">合并阶梯把逐级学习写成条件</h2>
+<p>将目标写成若干非零乘积项。用 Sₖ 表示第 k 项涉及的变量集合。“合并阶梯”要求这些项可以排序，使每个新项至多引入一个此前尚未出现的变量：</p>
+<div class="equation"><p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">|</mo><msub><mi>S</mi><mi>k</mi></msub><mo>\</mo><munder><mo>⋃</mo><mrow><mi>j</mi><mo>&lt;</mo><mi>k</mi></mrow></munder><msub><mi>S</mi><mi>j</mi></msub><mo stretchy="true" form="postfix">|</mo></mrow><mo>≤</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\left|S_k\setminus\bigcup_{j&lt;k}S_j\right|\leq 1.
+</annotation></semantics></math></p>
+</div>
+<p>公式中的并集包含此前所有项已经使用的变量；集合差留下新出现的变量；竖线表示变量个数。新项可以复用多个早期项中的变量，所以它比沿着一条固定的乘积链增长更一般。</p>
+<h2 id="section-3">成立条件怎样限制结论</h2>
+<p>作者考察只依赖少量输入坐标的稀疏目标、两层网络，以及指定尺度下的批量随机梯度训练。分析借助平均场极限，用参数分布随训练的演化近似宽网络，并研究样本量随输入维数同阶增长的情形。</p>
+<p>在这些训练和资源条件下，可学目标必须具有合并阶梯结构。反过来，具有这一结构的目标对几乎所有系数组合都可学，但某些特殊组合不在保证之内。</p>
+<p>实验跟踪不同项被学到的先后，也展示特殊系数组合造成的退化。这里的学习困难由指定算法与资源共同决定。</p>
+<h2 id="section-4">这对理解能力增长有什么帮助</h2>
+<p><a href="../../zh/articles/usable-information.html">可用信息</a>衡量一类模型能达到的最佳预测；合并阶梯进一步问，训练是否有路走到那里。在固定架构与更新算法下，已有特征也可以改变后续学习的起点。</p>
+<h2 id="section-5">原论文与核验位置</h2>
+<p>Emmanuel Abbe、Enric Boix-Adserà、Theodor Misiakiewicz（2022），<em>The merged-staircase property: a necessary and nearly sufficient condition for SGD learning of sparse functions on two-layer neural networks</em>，COLT。<a rel="noopener noreferrer" href="https://proceedings.mlr.press/v178/abbe22a.html">论文主页</a>；<a rel="noopener noreferrer" href="https://proceedings.mlr.press/v178/abbe22a/abbe22a.pdf">全文 PDF</a>。</p>
+<p>核验位置：第3页动机例子、§1.1、§4及图2。</p>
+</div><section class="related-reading"><h2>接着阅读</h2><div><a href="usable-information.html">可用信息 同一份证据为何对不同学习者作用不同<span aria-hidden="true">→</span></a></div></section></article></main><aside class="page-toc"><nav aria-label="本文目录"><span class="toc-label">本文目录</span><a href="#section-1">一个目标提供起点 另一个没有</a><a href="#section-2">合并阶梯把逐级学习写成条件</a><a href="#section-3">成立条件怎样限制结论</a><a href="#section-4">这对理解能力增长有什么帮助</a><a href="#section-5">原论文与核验位置</a></nav></aside></div>
+<footer class="site-footer"><span>RSI、反馈与学习动力学</span><span><a href="../../zh/library.html">阅读地图</a><span class="footer-dot">·</span><a href="../../zh/index.html#downloads">PDF</a></span></footer>
+<dialog id="search-dialog" aria-labelledby="search-title"><form method="dialog" class="search-heading"><h2 id="search-title">搜索文章</h2><button aria-label="关闭">×</button></form><label class="sr-only" for="search-input">搜索文章</label><input id="search-input" type="search" autocomplete="off" placeholder="标题、概念或文献"><p id="search-count" role="status" aria-live="polite"></p><ul id="search-results"></ul></dialog></body></html>

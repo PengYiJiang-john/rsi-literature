@@ -1,0 +1,28 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><title>Epiplexity 有限计算者能够学到多少结构 · RSI Literature</title><meta name="description" content="从经典理论到现代自修改系统，围绕价值、认识与学习机制，理解反馈为何支持进步，也可能维持错误。"><link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../../assets/styles.css"><script src="../../assets/search-index.js" defer></script><script src="../../assets/app.js" defer></script></head>
+<body data-lang="zh" data-root="../../"><a class="skip-link" href="#main">跳到正文</a>
+<header class="site-header"><a class="brand" href="../../zh/index.html"><span class="brand-mark" aria-hidden="true">R</span><span>RSI <span class="brand-detail">/ Literature</span></span></a>
+<nav class="top-nav" aria-label="主导航"><a href="../../zh/review.html">主综述</a><a href="../../zh/library.html">阅读地图</a></nav>
+<div class="header-actions"><button class="search-open" type="button" aria-label="搜索文章" aria-haspopup="dialog" aria-controls="search-dialog"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>搜索文章</span><kbd>/</kbd></button><a class="language-switch" lang="en" hreflang="en" href="../../en/articles/epiplexity.html">EN</a></div></header><div class="page-layout with-toc"><main id="main"><details class="mobile-toc"><summary>本文目录</summary><a href="#section-1">描述数据需要写下模型 也需要写下剩余内容</a><a href="#section-2">为什么结构复杂与纯噪声不同</a><a href="#section-3">实验怎样检验结构的任务价值</a><a href="#section-4">它衡量结构 不衡量某一轮进步</a><a href="#section-5">原论文与核验位置</a></details><a class="back-link" href="../library.html#epistemic">← 返回阅读地图</a><article><header class="reading-header"><p class="eyebrow">认识与交互</p><h1>Epiplexity 有限计算者能够学到多少结构</h1><div class="article-meta"><span>文献解读</span><span>2 分钟</span><a class="source-link" href="https://arxiv.org/abs/2601.03220v2" rel="noopener noreferrer">原论文 ↗</a></div></header><div class="prose"><p>数据很难预测，可能有两种原因：它接近随机，或者它包含学习者还没理解的复杂规律。两者都可能产生很大的预测误差，却不提供同样的学习机会。Finzi 等提出 epiplexity，用一个受计算限制的编码问题把可描述结构与剩余不可预测内容分开。</p>
+<h2 id="section-1">描述数据需要写下模型 也需要写下剩余内容</h2>
+<p>先选一个概率模型 P，再用它编码数据 X。总成本有两部分：写出 P 的程序需要多少比特，以及使用 P 后仍需多少比特描述数据。论文在满足给定运行时间限制的程序中，选择总成本最小者：</p>
+<div class="equation"><p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>P</mi><mo>⋆</mo></msup><mo>∈</mo><mo>arg</mo><munder><mo>min</mo><mrow><mi>P</mi><mo>∈</mo><msub><mi>𝒫</mi><mi>T</mi></msub></mrow></munder><mrow><mo stretchy="true" form="prefix">{</mo><mrow><mo stretchy="true" form="prefix">|</mo><mi>P</mi><mo stretchy="true" form="postfix">|</mo></mrow><mo>+</mo><mi>𝔼</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>−</mi><msub><mo>log</mo><mn>2</mn></msub><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow><mo stretchy="true" form="postfix">}</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+P^\star\in\arg\min_{P\in\mathcal P_T}
+\left\{|P|+\mathbb E[-\log_2P(X)]\right\}.
+</annotation></semantics></math></p>
+</div>
+<p>这里 𝒫ₜ 表示在时间限制 T 内能够完成相应采样和概率计算的程序集合；|P| 是程序本身的描述长度；后面的期望是编码数据仍需的平均长度。P★ 表示取得最佳总编码的程序。Epiplexity 取其中第一部分 |P★|，配套的限时熵对应第二部分。</p>
+<p>程序长度衡量写下模型的成本，运行时间限制决定哪些模型可以参加比较。</p>
+<h2 id="section-2">为什么结构复杂与纯噪声不同</h2>
+<p>对没有可利用规律的随机数据，用很复杂的程序未必能减少剩余编码，因此不值得支付额外的模型描述成本。对某些有组织的数据，更长的程序却能概括大量规律，换来更短的总描述。Epiplexity 衡量的正是这种最优描述中分配给模型的部分，而不是全部预测误差。</p>
+<p>这个量依赖计算时间和编码方式。放宽约束后，原先只能作为剩余内容记录的部分，可能变成程序能解释的结构。</p>
+<h2 id="section-3">实验怎样检验结构的任务价值</h2>
+<p>作者把同一棋局信息按两种顺序组织为预训练数据：先给棋盘再给着法，或先给着法再给棋盘。前一种顺序具有更高的估计 epiplexity。后续微调与测试比较发现，两种顺序训练出的模型解棋题的表现相当，而前者更善于预测表示局势优劣的数值。</p>
+<p>这个比较表明，相同信息的组织方式影响有限学习者能提取什么，其收益又取决于下游任务。实验中的 epiplexity 通过训练和编码近似估计。</p>
+<h2 id="section-4">它衡量结构 不衡量某一轮进步</h2>
+<p><a href="../../zh/articles/compression-progress.html">压缩进展</a>比较一次更新前后节省了多少编码；epiplexity 刻画给定约束下最佳描述中的结构部分；<a href="../../zh/articles/usable-information.html">V-information</a>衡量输入对某个指定预测目标能提供多少帮助。</p>
+<h2 id="section-5">原论文与核验位置</h2>
+<p>Marc Finzi 等（2026），<em>From Entropy to Epiplexity: Rethinking Information for Computationally Bounded Intelligence</em>，预印本。<a rel="noopener noreferrer" href="https://arxiv.org/abs/2601.03220v2">所用 arXiv v2</a>；<a rel="noopener noreferrer" href="https://arxiv.org/pdf/2601.03220v2">全文 PDF</a>。</p>
+<p>核验位置：§3定义7–8、定理9–10、§4、§6.1图7和附录 C.4。</p>
+</div><section class="related-reading"><h2>接着阅读</h2><div><a href="compression-progress.html">压缩进展 用刚学会的规律选择下一段经验<span aria-hidden="true">→</span></a><a href="usable-information.html">可用信息 同一份证据为何对不同学习者作用不同<span aria-hidden="true">→</span></a></div></section></article></main><aside class="page-toc"><nav aria-label="本文目录"><span class="toc-label">本文目录</span><a href="#section-1">描述数据需要写下模型 也需要写下剩余内容</a><a href="#section-2">为什么结构复杂与纯噪声不同</a><a href="#section-3">实验怎样检验结构的任务价值</a><a href="#section-4">它衡量结构 不衡量某一轮进步</a><a href="#section-5">原论文与核验位置</a></nav></aside></div>
+<footer class="site-footer"><span>RSI、反馈与学习动力学</span><span><a href="../../zh/library.html">阅读地图</a><span class="footer-dot">·</span><a href="../../zh/index.html#downloads">PDF</a></span></footer>
+<dialog id="search-dialog" aria-labelledby="search-title"><form method="dialog" class="search-heading"><h2 id="search-title">搜索文章</h2><button aria-label="关闭">×</button></form><label class="sr-only" for="search-input">搜索文章</label><input id="search-input" type="search" autocomplete="off" placeholder="标题、概念或文献"><p id="search-count" role="status" aria-live="polite"></p><ul id="search-results"></ul></dialog></body></html>

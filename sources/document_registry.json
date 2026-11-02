@@ -1,0 +1,1105 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-11-01",
+  "hub": {
+    "page_id": "page_3151875ec40081918804a698903f299f",
+    "url": "https://chatgpt.com/space/page_3151875ec40081918804a698903f299f",
+    "title": "RSI 文献解读与阅读地图",
+    "translations": {
+      "en": {
+        "page_id": "page_56bec21096bc8191b2eed4e286f11773",
+        "url": "https://chatgpt.com/space/page_56bec21096bc8191b2eed4e286f11773",
+        "title": "RSI Literature Reading Map"
+      }
+    }
+  },
+  "documents": [
+    {
+      "ref_id": 1,
+      "slug": "internal-rewards",
+      "title": "内部奖励为什么可以不同于最终目标",
+      "category": "value",
+      "source_path": "cards/internal-rewards.md",
+      "paper_title": "Singh et al. (2010). Intrinsically Motivated Reinforcement Learning: An Evolutionary Perspective. IEEE TAMD.",
+      "paper_url": "https://doi.org/10.1109/TAMD.2010.2051031",
+      "page_id": "page_ad470467e9608191ab977b17edbf95ba",
+      "url": "https://chatgpt.com/space/page_ad470467e9608191ab977b17edbf95ba",
+      "related": [
+        "eureka",
+        "utility-self-modification"
+      ],
+      "source_sha256": "9b581b8560bbc6770dc426ba1a26900cb9c5dda5107484d67d5189cdf7bfcd77",
+      "updated_at": "2026-11-01",
+      "published_at": "2026-11-01",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/cards/internal-rewards.md",
+          "title": "Why Internal Rewards Can Differ from the Final Objective",
+          "source_sha256": "2856f0a1b0dcfac8d75ecb459c28c8104f4850d78984bcf8f33c9ad9ad433c8c",
+          "related": [
+            "eureka",
+            "utility-self-modification"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_63aa0e5f909881919c98cea2836d9ee7",
+          "url": "https://chatgpt.com/space/page_63aa0e5f909881919c98cea2836d9ee7",
+          "published_at": "2026-11-01"
+        }
+      }
+    },
+    {
+      "ref_id": 2,
+      "slug": "eureka",
+      "title": "Eureka 如何用反馈改写训练奖励",
+      "category": "value",
+      "source_path": "cards/eureka.md",
+      "paper_title": "Ma et al. (2024). Eureka: Human-Level Reward Design via Coding Large Language Models. ICLR; arXiv v2.",
+      "paper_url": "https://arxiv.org/abs/2310.12931v2",
+      "page_id": "page_2cb46725dac881919dd144fd222ebaa2",
+      "url": "https://chatgpt.com/space/page_2cb46725dac881919dd144fd222ebaa2",
+      "related": [
+        "internal-rewards",
+        "utility-self-modification"
+      ],
+      "source_sha256": "c6112f8801e050dadacd53d199ef6c149cef67931a31d35f804bfd44ca7724ac",
+      "updated_at": "2026-11-01",
+      "published_at": "2026-11-01",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/cards/eureka.md",
+          "title": "Eureka: Improving Reward Programs through Training Feedback",
+          "source_sha256": "df4bc7a6437567e158a8a44ee04d9bc8673f37b1615363e05e82145cd833a513",
+          "related": [
+            "internal-rewards",
+            "utility-self-modification"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_ed88c6043e688191ae7e6edb8bc44b45",
+          "url": "https://chatgpt.com/space/page_ed88c6043e688191ae7e6edb8bc44b45",
+          "published_at": "2026-11-01"
+        }
+      }
+    },
+    {
+      "ref_id": 3,
+      "slug": "utility-self-modification",
+      "title": "改写目标时用哪个目标判断改进",
+      "category": "value",
+      "source_path": "cards/utility-self-modification.md",
+      "paper_title": "Everitt et al. (2016). Self-Modification of Policy and Utility Function in Rational Agents. AGI; v1.",
+      "paper_url": "https://arxiv.org/abs/1605.03142v1",
+      "page_id": "page_75f4fddbdcf881919ee5811bddc933d6",
+      "url": "https://chatgpt.com/space/page_75f4fddbdcf881919ee5811bddc933d6",
+      "related": [
+        "eureka"
+      ],
+      "source_sha256": "a35c8975bab0c88c563a60242f72424b5d824840983ba217ee60a6f2747975aa",
+      "updated_at": "2026-11-01",
+      "published_at": "2026-11-01",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/cards/utility-self-modification.md",
+          "title": "Which Objective Should Evaluate a Change of Objective?",
+          "source_sha256": "57981d28f61d5b71c1c27f8ffc5d2d60f6e8b76f1fdd93fc47c1a755813abf05",
+          "related": [
+            "eureka"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_9dd7197219008191bc75f3fee6a45051",
+          "url": "https://chatgpt.com/space/page_9dd7197219008191bc75f3fee6a45051",
+          "published_at": "2026-11-01"
+        }
+      }
+    },
+    {
+      "ref_id": 4,
+      "slug": "metareasoning",
+      "title": "元决策论怎样判断是否值得继续计算",
+      "category": "value",
+      "source_path": "cards/metareasoning.md",
+      "paper_title": "Hay et al. (2012). Selecting Computations: Theory and Applications. UAI.",
+      "paper_url": "https://proceedings.mlr.press/r10/hay12a.html",
+      "page_id": "page_2aac8b8bc0588191afc527b512750152",
+      "url": "https://chatgpt.com/space/page_2aac8b8bc0588191afc527b512750152",
+      "related": [
+        "godel-machine"
+      ],
+      "source_sha256": "76ac2b5848fbd64bfba610e574f21a6b2dc42e4495dbfb1e3cfd6d78f23feeab",
+      "updated_at": "2026-11-01",
+      "published_at": "2026-11-01",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/cards/metareasoning.md",
+          "title": "Metareasoning: When Is More Computation Worthwhile?",
+          "source_sha256": "335e33909b2a4e621468b95f95bb8711d22fb83d1f00765974ce314520d81a6f",
+          "related": [
+            "godel-machine"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_8067fbbe96b08191bb038d835f45d409",
+          "url": "https://chatgpt.com/space/page_8067fbbe96b08191bb038d835f45d409",
+          "published_at": "2026-11-01"
+        }
+      }
+    },
+    {
+      "ref_id": 5,
+      "slug": "godel-machine",
+      "title": "Gödel machine 怎样接受一次自修改",
+      "category": "value",
+      "source_path": "cards/godel-machine.md",
+      "paper_title": "Schmidhuber (2003/2006). Gödel Machines: Self-Referential Universal Problem Solvers Making Provably Optimal Self-Improvements. v5.",
+      "paper_url": "https://arxiv.org/abs/cs/0309048v5",
+      "page_id": "page_367a4e257fd081918744770462a3ea4e",
+      "url": "https://chatgpt.com/space/page_367a4e257fd081918744770462a3ea4e",
+      "related": [
+        "eureka",
+        "metareasoning"
+      ],
+      "source_sha256": "cfdc8c61966a20a9e3d4a37cf8160f562c39fa0d67763b5b8ceabc30ebd7c1fc",
+      "updated_at": "2026-11-01",
+      "published_at": "2026-11-01",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/cards/godel-machine.md",
+          "title": "The Gödel Machine’s Criterion for Self-Modification",
+          "source_sha256": "ec785b4fe1eee13038af94a93f9d5e1e3a627c373bacacfc1dee271ab855fd9a",
+          "related": [
+            "eureka",
+            "metareasoning"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_01f28966a97c8191a95f4695efcc0ae1",
+          "url": "https://chatgpt.com/space/page_01f28966a97c8191a95f4695efcc0ae1",
+          "published_at": "2026-11-01"
+        }
+      }
+    },
+    {
+      "ref_id": 6,
+      "slug": "blackwell-information",
+      "title": "Blackwell 信息怎样改善决策",
+      "category": "epistemic",
+      "source_path": "cards/blackwell-information.md",
+      "paper_title": "Blackwell (1953). Equivalent Comparisons of Experiments. Ann. Math. Stat. 24:265–272. †",
+      "paper_url": "https://doi.org/10.1214/aoms/1177729032",
+      "page_id": "page_28cecd25c1f48191a02569329fab3439",
+      "url": "https://chatgpt.com/space/page_28cecd25c1f48191a02569329fab3439",
+      "related": [
+        "dual-control",
+        "usable-information"
+      ],
+      "source_sha256": "81dd947ba053e9f2cec536223ec60635ba0e3933dcb50927f055df06f41497cd",
+      "updated_at": "2026-11-01",
+      "published_at": "2026-11-01",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/cards/blackwell-information.md",
+          "title": "Blackwell on how information improves decisions",
+          "source_sha256": "14ca5f24178a463dff1e17ef6d03d19df041b92e91a40e79070fa0e593f3c58a",
+          "related": [
+            "dual-control",
+            "usable-information"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_f497c70a314c8191a4652fc4cc150911",
+          "url": "https://chatgpt.com/space/page_f497c70a314c8191a4652fc4cc150911",
+          "published_at": "2026-11-01"
+        }
+      }
+    },
+    {
+      "ref_id": 7,
+      "slug": "dual-control",
+      "title": "双重控制 行动也在为后续学习获取证据",
+      "category": "epistemic",
+      "source_path": "cards/dual-control.md",
+      "paper_title": "Klenske & Hennig (2016). Dual Control for Approximate Bayesian Reinforcement Learning. JMLR 17(127).",
+      "paper_url": "https://jmlr.org/papers/v17/15-162.html",
+      "page_id": "page_af977d15600c8191bf4e1457c74d01ef",
+      "url": "https://chatgpt.com/space/page_af977d15600c8191bf4e1457c74d01ef",
+      "related": [
+        "blackwell-information",
+        "information-directed-sampling"
+      ],
+      "source_sha256": "91b834ee9e7bb587741a4ffe44059d1f6abe04a5c459060c2be81225a74d3d8e",
+      "updated_at": "2026-11-01",
+      "published_at": "2026-11-01",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/cards/dual-control.md",
+          "title": "Dual control and the learning value of actions",
+          "source_sha256": "43bacfb75ed7ccec372874de883cfd0d01d59948f3d88969e43c0a2d0e9c0a70",
+          "related": [
+            "blackwell-information",
+            "information-directed-sampling"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_3695215c22c88191b31621ae22bae069",
+          "url": "https://chatgpt.com/space/page_3695215c22c88191b31621ae22bae069",
+          "published_at": "2026-11-01"
+        }
+      }
+    },
+    {
+      "ref_id": 8,
+      "slug": "information-directed-sampling",
+      "title": "信息导向采样 探索应服务于找到最优行动",
+      "category": "epistemic",
+      "source_path": "cards/information-directed-sampling.md",
+      "paper_title": "Russo & Van Roy (2014). Learning to Optimize via Information-Directed Sampling. NeurIPS.",
+      "paper_url": "https://papers.neurips.cc/paper/5463-learning-to-optimize-via-information-directed-sampling.pdf",
+      "page_id": "page_63e24b2e26a48191976e6db8329eae3d",
+      "url": "https://chatgpt.com/space/page_63e24b2e26a48191976e6db8329eae3d",
+      "related": [
+        "dual-control",
+        "usable-information"
+      ],
+      "source_sha256": "22b52179eb3d6e61c4202da531e60fd979f22580e6a3d2bd540ab4a9a223faca",
+      "updated_at": "2026-11-01",
+      "published_at": "2026-11-01",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/cards/information-directed-sampling.md",
+          "title": "Information-directed sampling to find the best action",
+          "source_sha256": "e8db643d5be5bc6602c9f16ee493e135de1f3402ff713c676f00f997b878635b",
+          "related": [
+            "dual-control",
+            "usable-information"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_d5da720c3db48191994596cd2fd45e9d",
+          "url": "https://chatgpt.com/space/page_d5da720c3db48191994596cd2fd45e9d",
+          "published_at": "2026-11-01"
+        }
+      }
+    },
+    {
+      "ref_id": 9,
+      "slug": "usable-information",
+      "title": "可用信息 同一份证据为何对不同学习者作用不同",
+      "category": "epistemic",
+      "source_path": "cards/usable-information.md",
+      "paper_title": "Xu et al. (2020). A Theory of Usable Information under Computational Constraints. ICLR; v1.",
+      "paper_url": "https://arxiv.org/abs/2002.10689v1",
+      "page_id": "page_f324032d6cbc8191a722a52cdb25f65b",
+      "url": "https://chatgpt.com/space/page_f324032d6cbc8191a722a52cdb25f65b",
+      "related": [
+        "compression-progress",
+        "merged-staircase"
+      ],
+      "source_sha256": "fe6b8d33eee665161894a2de4966f541e5f4d9bd919fd18b579c82710c63d7b6",
+      "updated_at": "2026-11-01",
+      "published_at": "2026-11-01",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/cards/usable-information.md",
+          "title": "Why the same evidence is more usable for some learners",
+          "source_sha256": "38ccd840e7c38dab01f695b42f140346073e333f9bb3674dfa459f96b59ea99a",
+          "related": [
+            "compression-progress",
+            "merged-staircase"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_90f36c1e54608191a44cf077dea41bc4",
+          "url": "https://chatgpt.com/space/page_90f36c1e54608191a44cf077dea41bc4",
+          "published_at": "2026-11-01"
+        }
+      }
+    },
+    {
+      "ref_id": 10,
+      "slug": "merged-staircase",
+      "title": "合并阶梯 简单特征怎样成为后续学习的起点",
+      "category": "epistemic",
+      "source_path": "cards/merged-staircase.md",
+      "paper_title": "Abbe et al. (2022). The merged-staircase property: a necessary and nearly sufficient condition for SGD learning of sparse functions on two-layer neural networks. COLT.",
+      "paper_url": "https://proceedings.mlr.press/v178/abbe22a.html",
+      "page_id": "page_8db0ed22bbd48191bfc6f24eaaa74776",
+      "url": "https://chatgpt.com/space/page_8db0ed22bbd48191bfc6f24eaaa74776",
+      "related": [
+        "usable-information"
+      ],
+      "source_sha256": "c572cd4280826d5da9a1bfdbeae3ec7bd9a13086f1409225a80da6ed63464d0e",
+      "updated_at": "2026-11-01",
+      "published_at": "2026-11-01",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/cards/merged-staircase.md",
+          "title": "How simple features create a path to further learning",
+          "source_sha256": "57f75b86b2e086daf80152a09b5b0e0a280059c3be2feb414a178e371788f787",
+          "related": [
+            "usable-information"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_a09daaf856948191baa81412f281c987",
+          "url": "https://chatgpt.com/space/page_a09daaf856948191baa81412f281c987",
+          "published_at": "2026-11-01"
+        }
+      }
+    },
+    {
+      "ref_id": 11,
+      "slug": "compression-progress",
+      "title": "压缩进展 用刚学会的规律选择下一段经验",
+      "category": "epistemic",
+      "source_path": "cards/compression-progress.md",
+      "paper_title": "Schmidhuber (2009). Driven by Compression Progress: A Simple Principle Explains Essential Aspects of Subjective Beauty, Novelty, Surprise, Interestingness, Attention, Curiosity, Creativity, Art, Science, Music, Jokes. arXiv v2.",
+      "paper_url": "https://arxiv.org/abs/0812.4360v2",
+      "page_id": "page_4595ce78998c8191a53245300a9a05b4",
+      "url": "https://chatgpt.com/space/page_4595ce78998c8191a53245300a9a05b4",
+      "related": [
+        "epiplexity",
+        "usable-information"
+      ],
+      "source_sha256": "a4e0a0fd03887a2cb75c8ae1a51d3cde611a1077354539e3c4fe60bcb086aab3",
+      "updated_at": "2026-11-01",
+      "published_at": "2026-11-01",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/cards/compression-progress.md",
+          "title": "Choosing experience through compression progress",
+          "source_sha256": "47a056df28a0ef2a083c279a4cd36d523d379686b4597822dda84fc12432e429",
+          "related": [
+            "epiplexity",
+            "usable-information"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_5b41b6cad764819197ef983474a8f2f3",
+          "url": "https://chatgpt.com/space/page_5b41b6cad764819197ef983474a8f2f3",
+          "published_at": "2026-11-01"
+        }
+      }
+    },
+    {
+      "ref_id": 12,
+      "slug": "epiplexity",
+      "title": "Epiplexity 有限计算者能够学到多少结构",
+      "category": "epistemic",
+      "source_path": "cards/epiplexity.md",
+      "paper_title": "Finzi et al. (2026). From Entropy to Epiplexity: Rethinking Information for Computationally Bounded Intelligence. 预印本 v2.",
+      "paper_url": "https://arxiv.org/abs/2601.03220v2",
+      "page_id": "page_625bad6ea9c4819185c295150690cbf5",
+      "url": "https://chatgpt.com/space/page_625bad6ea9c4819185c295150690cbf5",
+      "related": [
+        "compression-progress",
+        "usable-information"
+      ],
+      "source_sha256": "72f4285a62391ca3d23aafbd1a84774fd260942c8dcb9fb67f777b055d82e352",
+      "updated_at": "2026-11-01",
+      "published_at": "2026-11-01",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/cards/epiplexity.md",
+          "title": "Epiplexity and structure accessible under limited computation",
+          "source_sha256": "f20291764e5bd1905f93c86f90347f083f45e64224e7a0967fcf6c12ed5191ce",
+          "related": [
+            "compression-progress",
+            "usable-information"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_0db03ea15a6c8191b9e167cf08cd1ddd",
+          "url": "https://chatgpt.com/space/page_0db03ea15a6c8191b9e167cf08cd1ddd",
+          "published_at": "2026-11-01"
+        }
+      }
+    },
+    {
+      "ref_id": 13,
+      "slug": "toolformer",
+      "title": "Toolformer 如何学会调用已有工具",
+      "category": "epistemic",
+      "source_path": "cards/toolformer.md",
+      "paper_title": "Schick et al. (2023). Toolformer: Language Models Can Teach Themselves to Use Tools. NeurIPS; 核对v1.",
+      "paper_url": "https://arxiv.org/abs/2302.04761v1",
+      "page_id": "page_1c3b7e6f49d0819182a1931f0d9b7806",
+      "url": "https://chatgpt.com/space/page_1c3b7e6f49d0819182a1931f0d9b7806",
+      "related": [
+        "voyager"
+      ],
+      "source_sha256": "c6bb6b76cc5aeb119dfeb8283744905d0de0641d7fdb8a3119eaec32ca307ec9",
+      "updated_at": "2026-11-01",
+      "published_at": "2026-11-01",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/cards/toolformer.md",
+          "title": "How Toolformer learns to use existing tools",
+          "source_sha256": "66e409a354e9b73880cff42a382c1c4459fc8e29b2be965d68df6a0d9cb970f2",
+          "related": [
+            "voyager"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_18db3df26f1081919f907c22c0f549b4",
+          "url": "https://chatgpt.com/space/page_18db3df26f1081919f907c22c0f549b4",
+          "published_at": "2026-11-01"
+        }
+      }
+    },
+    {
+      "ref_id": 14,
+      "slug": "voyager",
+      "title": "Voyager 如何把技能积累变成后续学习的资源",
+      "category": "epistemic",
+      "source_path": "cards/voyager.md",
+      "paper_title": "Wang et al. (2024; 初稿2023). Voyager: An Open-Ended Embodied Agent with Large Language Models. TMLR; 核对v2.",
+      "paper_url": "https://arxiv.org/abs/2305.16291v2",
+      "page_id": "page_e5841ffdd4648191ad4f7a693795ce49",
+      "url": "https://chatgpt.com/space/page_e5841ffdd4648191ad4f7a693795ce49",
+      "related": [
+        "memento-3",
+        "toolformer"
+      ],
+      "source_sha256": "1b0bd0280b2c7dd284b780ef6e6083ba32a013e8b8a8e017f3a107b5e2e45b6b",
+      "updated_at": "2026-11-01",
+      "published_at": "2026-11-01",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/cards/voyager.md",
+          "title": "How Voyager turns accumulated skills into resources for later learning",
+          "source_sha256": "94a7dee269413291c381b4728c3f074c4c74e436ac94ea95b12f3ad0909f0501",
+          "related": [
+            "memento-3",
+            "toolformer"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_089d4260a4508191b9e8bd7d890d5faf",
+          "url": "https://chatgpt.com/space/page_089d4260a4508191b9e8bd7d890d5faf",
+          "published_at": "2026-11-01"
+        }
+      }
+    },
+    {
+      "ref_id": 15,
+      "slug": "memento-3",
+      "title": "Memento 3 如何用世界模型改进下一轮交互",
+      "category": "epistemic",
+      "source_path": "cards/memento-3.md",
+      "paper_title": "Zhao et al. (2026). Memento 3: Model-Based Recursive Self-Improvement through Reflective Rulebooks. 预印本 v1.",
+      "paper_url": "https://arxiv.org/abs/2610.11794v1",
+      "page_id": "page_27243446cb588191bbb3f2b8f84fdcb7",
+      "url": "https://chatgpt.com/space/page_27243446cb588191bbb3f2b8f84fdcb7",
+      "related": [
+        "bayesian-model-criticism"
+      ],
+      "source_sha256": "69e59997dc46a9f979d0971ef2268d050494f15174a4a8c7f4b257245321fad2",
+      "updated_at": "2026-11-01",
+      "published_at": "2026-11-01",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/cards/memento-3.md",
+          "title": "How Memento 3 uses a world model to improve the next interaction",
+          "source_sha256": "34f95378808dc5476a22e8a6e2e2658919e20717b4504f2e04c68bf816758cb1",
+          "related": [
+            "bayesian-model-criticism"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_317cd58c5c5c8191b4f0bea4b03417fb",
+          "url": "https://chatgpt.com/space/page_317cd58c5c5c8191b4f0bea4b03417fb",
+          "published_at": "2026-11-01"
+        }
+      }
+    },
+    {
+      "ref_id": 16,
+      "slug": "bayesian-model-criticism",
+      "title": "模型批判为什么不能由后验更新代替",
+      "category": "epistemic",
+      "source_path": "cards/bayesian-model-criticism.md",
+      "paper_title": "Gelman & Shalizi (2013). Philosophy and the practice of Bayesian statistics. BJMSP 66:8–38; 核对作者v3.",
+      "paper_url": "https://arxiv.org/abs/1006.3868v3",
+      "page_id": "page_d2cf080dcb388191a9b2f6bf95180a87",
+      "url": "https://chatgpt.com/space/page_d2cf080dcb388191a9b2f6bf95180a87",
+      "related": [
+        "memento-3"
+      ],
+      "source_sha256": "da186aeca592bf3d4d82499b72b6f92133633b9391396d95d6d6697334df32e5",
+      "updated_at": "2026-11-01",
+      "published_at": "2026-11-01",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/cards/bayesian-model-criticism.md",
+          "title": "Why posterior updating cannot replace model criticism",
+          "source_sha256": "42af2c3f65040247a63253655beea8aa991568eb56d0c1f0c01e3ad9ff2ad2ea",
+          "related": [
+            "memento-3"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_a98670b0ad7881918ff4288aca0c1832",
+          "url": "https://chatgpt.com/space/page_a98670b0ad7881918ff4288aca0c1832",
+          "published_at": "2026-11-01"
+        }
+      }
+    },
+    {
+      "ref_id": 17,
+      "slug": "learned-optimizers",
+      "title": "学习型优化器如何学会更新另一个模型",
+      "category": "learning",
+      "source_path": "cards/learned-optimizers.md",
+      "paper_title": "Andrychowicz et al. (2016). Learning to learn by gradient descent by gradient descent. NeurIPS; v2.",
+      "paper_url": "https://arxiv.org/abs/1606.04474v2",
+      "page_id": "page_b8a543d60c808191874367a7d1ee8212",
+      "url": "https://chatgpt.com/space/page_b8a543d60c808191874367a7d1ee8212",
+      "related": [
+        "meta-reinforcement-learning",
+        "neural-architecture-search"
+      ],
+      "source_sha256": "62aa7d84c374eb8ebad2806b76db1212292b814bb5c7d319639c1bab38c6b2cb",
+      "updated_at": "2026-11-01",
+      "published_at": "2026-11-01",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/cards/learned-optimizers.md",
+          "title": "Learned Optimizers: Learning How to Update Another Model",
+          "source_sha256": "4881e8df79fdd25c3cf412360a6846b3e4640cfcf513aff56bdc691a180aaf7a",
+          "related": [
+            "meta-reinforcement-learning",
+            "neural-architecture-search"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_86b6d220170c81918ac36907ca2387f0",
+          "url": "https://chatgpt.com/space/page_86b6d220170c81918ac36907ca2387f0",
+          "published_at": "2026-11-01"
+        }
+      }
+    },
+    {
+      "ref_id": 18,
+      "slug": "neural-architecture-search",
+      "title": "架构搜索怎样学习提出更好的模型",
+      "category": "learning",
+      "source_path": "cards/neural-architecture-search.md",
+      "paper_title": "Zoph & Le (2017). Neural Architecture Search with Reinforcement Learning. ICLR; v2.",
+      "paper_url": "https://arxiv.org/abs/1611.01578v2",
+      "page_id": "page_f06a5d97fc008191a685c9a537d3467d",
+      "url": "https://chatgpt.com/space/page_f06a5d97fc008191a685c9a537d3467d",
+      "related": [
+        "learned-optimizers"
+      ],
+      "source_sha256": "98094208516487c9d8da64381cb066a9da9a5af9328f7ed7c90885eb83a6f7f0",
+      "updated_at": "2026-11-01",
+      "published_at": "2026-11-01",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/cards/neural-architecture-search.md",
+          "title": "Neural Architecture Search: Learning to Propose Better Models",
+          "source_sha256": "c899e718aa0e6c1709b46a51fb5196b60428569c55cf28c896c15bccd28aa79e",
+          "related": [
+            "learned-optimizers"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_cb97151405a48191ab2105e95c887ebc",
+          "url": "https://chatgpt.com/space/page_cb97151405a48191ab2105e95c887ebc",
+          "published_at": "2026-11-01"
+        }
+      }
+    },
+    {
+      "ref_id": 19,
+      "slug": "meta-reinforcement-learning",
+      "title": "权重不变时系统怎样继续学习",
+      "category": "learning",
+      "source_path": "cards/meta-reinforcement-learning.md",
+      "paper_title": "Wang et al. (2016/2017). Learning to reinforcement learn. arXiv:1611.05763v3.",
+      "paper_url": "https://arxiv.org/abs/1611.05763v3",
+      "page_id": "page_cbd1b570e1e88191aa34f631c2985969",
+      "url": "https://chatgpt.com/space/page_cbd1b570e1e88191aa34f631c2985969",
+      "related": [
+        "learned-optimizers"
+      ],
+      "source_sha256": "4f91027e61011bd059681cba3cd5daef7697e03ed838b27aede98b0fd7386715",
+      "updated_at": "2026-11-01",
+      "published_at": "2026-11-01",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/cards/meta-reinforcement-learning.md",
+          "title": "Meta-Reinforcement Learning: Adaptation with Fixed Weights",
+          "source_sha256": "2db28311d9587be1d4e34cb57a47edcdcdbf041d458d4baf8cd91f5a67705d45",
+          "related": [
+            "learned-optimizers"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_987569acd77c819195046e13fa3f047d",
+          "url": "https://chatgpt.com/space/page_987569acd77c819195046e13fa3f047d",
+          "published_at": "2026-11-01"
+        }
+      }
+    },
+    {
+      "ref_id": 20,
+      "slug": "stop",
+      "title": "STOP 怎样评价产生改进的程序",
+      "category": "learning",
+      "source_path": "cards/stop.md",
+      "paper_title": "Zelikman et al. (2024). Self-Taught Optimizer (STOP): Recursively Self-Improving Code Generation. COLM; v3.",
+      "paper_url": "https://arxiv.org/abs/2310.02304v3",
+      "page_id": "page_7eda163321e081919f66cb66ab5dd7ab",
+      "url": "https://chatgpt.com/space/page_7eda163321e081919f66cb66ab5dd7ab",
+      "related": [
+        "darwin-godel-machine",
+        "hyperagents"
+      ],
+      "source_sha256": "4149c5da27a8d5c67e15507e09b433cd09d72f135c10fec0b8d850afd278228d",
+      "updated_at": "2026-11-01",
+      "published_at": "2026-11-01",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/cards/stop.md",
+          "title": "How STOP evaluates a program that produces improvements",
+          "source_sha256": "7eea4510c71e35a031b451bb70aea2ab3aab893d2204b1ec40acefcfe9e67a42",
+          "related": [
+            "darwin-godel-machine",
+            "hyperagents"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_32f7a1972e0481919e8c67e4a41d5150",
+          "url": "https://chatgpt.com/space/page_32f7a1972e0481919e8c67e4a41d5150",
+          "published_at": "2026-11-01"
+        }
+      }
+    },
+    {
+      "ref_id": 21,
+      "slug": "darwin-godel-machine",
+      "title": "DGM 如何让后代程序继续参与自修改",
+      "category": "learning",
+      "source_path": "cards/darwin-godel-machine.md",
+      "paper_title": "Zhang et al. (2025/2026). Darwin Gödel Machine: Open-Ended Evolution of Self-Improving Agents. arXiv v3.",
+      "paper_url": "https://arxiv.org/abs/2505.22954v3",
+      "page_id": "page_6af579aa12748191b0839320ff965664",
+      "url": "https://chatgpt.com/space/page_6af579aa12748191b0839320ff965664",
+      "related": [
+        "hyperagents"
+      ],
+      "source_sha256": "d8f3013cadcc79aa7adad66b531c6aaf7ab0bbe57d941057596c641d536287d5",
+      "updated_at": "2026-11-01",
+      "published_at": "2026-11-01",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/cards/darwin-godel-machine.md",
+          "title": "How DGM lets descendant programs continue self-modification",
+          "source_sha256": "d3ccb201ba022fd6931f9a661027e0b3801caeb8c615444869bf1cd8e031fada",
+          "related": [
+            "hyperagents"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_e51ba0f0c9f08191824847d7c64da437",
+          "url": "https://chatgpt.com/space/page_e51ba0f0c9f08191824847d7c64da437",
+          "published_at": "2026-11-01"
+        }
+      }
+    },
+    {
+      "ref_id": 22,
+      "slug": "hyperagents",
+      "title": "HyperAgents 怎样把改进过程也纳入修改",
+      "category": "learning",
+      "source_path": "cards/hyperagents.md",
+      "paper_title": "Zhang et al. (2026). Hyperagents. arXiv:2603.19461v1，预印本.",
+      "paper_url": "https://arxiv.org/abs/2603.19461v1",
+      "page_id": "page_259fedb4c4d88191badc6ee57a88fe3b",
+      "url": "https://chatgpt.com/space/page_259fedb4c4d88191badc6ee57a88fe3b",
+      "related": [
+        "darwin-godel-machine",
+        "stop"
+      ],
+      "source_sha256": "0479b57c39c6f4bd0af6e345f845a90c925db83794793d85b06eafbb2001bcef",
+      "updated_at": "2026-11-01",
+      "published_at": "2026-11-01",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/cards/hyperagents.md",
+          "title": "How HyperAgents makes the improvement process editable",
+          "source_sha256": "64fba98ab3782211c469a0831be010e2478b453546e8dc09be955a8813da2593",
+          "related": [
+            "darwin-godel-machine",
+            "stop"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_301ff92939008191a7ca08dc2f260ce6",
+          "url": "https://chatgpt.com/space/page_301ff92939008191a7ca08dc2f260ce6",
+          "published_at": "2026-11-01"
+        }
+      }
+    },
+    {
+      "ref_id": 23,
+      "slug": "plasticity",
+      "title": "持续学习为什么还需要保持可塑性",
+      "category": "learning",
+      "source_path": "cards/plasticity.md",
+      "paper_title": "Dohare et al. (2024). Loss of plasticity in deep continual learning. Nature 632:768–774; 方法核对作者v3.",
+      "paper_url": "https://arxiv.org/abs/2306.13812v3",
+      "page_id": "page_86aabd0c0e688191aa0286beebf1ff23",
+      "url": "https://chatgpt.com/space/page_86aabd0c0e688191aa0286beebf1ff23",
+      "related": [
+        "learned-optimizers",
+        "meta-reinforcement-learning"
+      ],
+      "source_sha256": "6caab1498bac6bc5c41aea6e4a7abefce7f3eae85c0e7ea67570e179cdba7242",
+      "updated_at": "2026-11-01",
+      "published_at": "2026-11-01",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/cards/plasticity.md",
+          "title": "Why continual learning also requires plasticity",
+          "source_sha256": "def1ae71caffb5eecf03fa88b4f684f0aae40b6f53d31dbdd08918867773dfc8",
+          "related": [
+            "learned-optimizers",
+            "meta-reinforcement-learning"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_7888c85994fc8191a6e54702868f5b17",
+          "url": "https://chatgpt.com/space/page_7888c85994fc8191a6e54702868f5b17",
+          "published_at": "2026-11-01"
+        }
+      }
+    },
+    {
+      "ref_id": 24,
+      "slug": "self-confirming-equilibrium",
+      "title": "自我确认均衡 为什么正确的反馈仍能留下错误判断",
+      "category": "feedback",
+      "source_path": "cards/self-confirming-equilibrium.md",
+      "paper_title": "Fudenberg & Levine (1993). Self-Confirming Equilibrium. Econometrica 61:523–545.",
+      "paper_url": "https://economics.mit.edu/sites/default/files/inline-files/sce.pdf",
+      "page_id": "page_a38360afb6ac81918e0b216de87202a4",
+      "url": "https://chatgpt.com/space/page_a38360afb6ac81918e0b216de87202a4",
+      "related": [
+        "berk-nash"
+      ],
+      "source_sha256": "6d11096e59605dd4e1df85ad83095e756ffb6a8f2b83d4248319dac49d6e5e98",
+      "updated_at": "2026-11-01",
+      "published_at": "2026-11-01",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/cards/self-confirming-equilibrium.md",
+          "title": "Self-confirming equilibrium: why accurate feedback can leave mistaken beliefs intact",
+          "source_sha256": "ecc6dbeb5c5b67ccd0f7cb5ceac48d138645b79d89e2999feed7109683b1b0f8",
+          "related": [
+            "berk-nash"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_aefe6aafd0708191bbcd034c3e0d5b8e",
+          "url": "https://chatgpt.com/space/page_aefe6aafd0708191bbcd034c3e0d5b8e",
+          "published_at": "2026-11-01"
+        }
+      }
+    },
+    {
+      "ref_id": 25,
+      "slug": "berk-nash",
+      "title": "Berk–Nash 均衡如何解释反馈中的错误自洽",
+      "category": "feedback",
+      "source_path": "cards/berk-nash.md",
+      "paper_title": "Esponda & Pouzo (2016). Berk–Nash Equilibrium: A Framework for Modeling Agents with Misspecified Models. Econometrica; v4含2019勘误.",
+      "paper_url": "https://arxiv.org/abs/1411.1152v4",
+      "page_id": "page_3c1d13d32a0c8191a3fff2d2420fbe75",
+      "url": "https://chatgpt.com/space/page_3c1d13d32a0c8191a3fff2d2420fbe75",
+      "related": [
+        "endogenous-misspecified-learning",
+        "feedback",
+        "limited-discriminators",
+        "model-collapse",
+        "self-confirming-equilibrium"
+      ],
+      "source_sha256": "62ed1bb0128a773c62108a4b09f5b3fbc072b764d5839c3f3d5b2259d7b3f983",
+      "updated_at": "2026-11-01",
+      "published_at": "2026-11-01",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/cards/berk-nash.md",
+          "title": "Berk–Nash equilibrium: how feedback can sustain a mistaken view",
+          "source_sha256": "3419303b626cc71f44b3c40942a07cbcfddb91d6c51bac894603b9d8cb4b8f70",
+          "related": [
+            "endogenous-misspecified-learning",
+            "feedback",
+            "limited-discriminators",
+            "model-collapse",
+            "self-confirming-equilibrium"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_02bbc45797508191bb495c030b117f75",
+          "url": "https://chatgpt.com/space/page_02bbc45797508191bb495c030b117f75",
+          "published_at": "2026-11-01"
+        }
+      }
+    },
+    {
+      "ref_id": 26,
+      "slug": "endogenous-misspecified-learning",
+      "title": "内生错设学习 哪些自洽状态能成为长期结果",
+      "category": "feedback",
+      "source_path": "cards/endogenous-misspecified-learning.md",
+      "paper_title": "Fudenberg, Lanzani & Strack (2021). Limit Points of Endogenous Misspecified Learning. Econometrica 89:1065–1098.",
+      "paper_url": "https://doi.org/10.3982/ECTA18508",
+      "page_id": "page_0080a1ffc12c819190e0b3ed1dcaf042",
+      "url": "https://chatgpt.com/space/page_0080a1ffc12c819190e0b3ed1dcaf042",
+      "related": [
+        "berk-nash"
+      ],
+      "source_sha256": "14185d4609acc27383bb099ecfdd7f059ce05ff7cf52e5e4caf383da89236a0c",
+      "updated_at": "2026-11-01",
+      "published_at": "2026-11-01",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/cards/endogenous-misspecified-learning.md",
+          "title": "Endogenous misspecified learning: which self-consistent states can persist?",
+          "source_sha256": "9c943321ff83c97e39d33357c9881c9e59624430a94debb7db0f9c683c6a8c8c",
+          "related": [
+            "berk-nash"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_884c90f80f908191b52eec21327a0901",
+          "url": "https://chatgpt.com/space/page_884c90f80f908191b52eec21327a0901",
+          "published_at": "2026-11-01"
+        }
+      }
+    },
+    {
+      "ref_id": 27,
+      "slug": "performative-prediction",
+      "title": "Performative prediction 预测模型怎样改变下一轮数据",
+      "category": "feedback",
+      "source_path": "cards/performative-prediction.md",
+      "paper_title": "Perdomo et al. (2020). Performative Prediction. ICML.",
+      "paper_url": "https://proceedings.mlr.press/v119/perdomo20a.html",
+      "page_id": "page_57e4115a723c819182145d0159b0360f",
+      "url": "https://chatgpt.com/space/page_57e4115a723c819182145d0159b0360f",
+      "related": [
+        "berk-nash",
+        "outside-echo-chamber"
+      ],
+      "source_sha256": "41e87ee81f88f79bc48b4e98d83472615063d84c4a1520ebd6afaff8e7dcec95",
+      "updated_at": "2026-11-01",
+      "published_at": "2026-11-01",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/cards/performative-prediction.md",
+          "title": "Performative prediction: how a model changes its next training data",
+          "source_sha256": "9f2b9b213bc929fab2f0a96065bec0c8d5873322929a40980da1aef5bd04f80a",
+          "related": [
+            "berk-nash",
+            "outside-echo-chamber"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_26be4a1702d081918b3b9c443b163569",
+          "url": "https://chatgpt.com/space/page_26be4a1702d081918b3b9c443b163569",
+          "published_at": "2026-11-01"
+        }
+      }
+    },
+    {
+      "ref_id": 28,
+      "slug": "outside-echo-chamber",
+      "title": "Outside the Echo Chamber 怎样优化部署反馈后的表现",
+      "category": "feedback",
+      "source_path": "cards/outside-echo-chamber.md",
+      "paper_title": "Miller, Perdomo & Zrnic (2021). Outside the Echo Chamber: Optimizing the Performative Risk. ICML.",
+      "paper_url": "https://proceedings.mlr.press/v139/miller21a.html",
+      "page_id": "page_0920fbd5ac288191af46146a66a346ab",
+      "url": "https://chatgpt.com/space/page_0920fbd5ac288191af46146a66a346ab",
+      "related": [
+        "berk-nash",
+        "performative-prediction"
+      ],
+      "source_sha256": "1047392a744651d23ab9c238f8e24129f4a265f3cf521c9a778d54ff835ebcc4",
+      "updated_at": "2026-11-01",
+      "published_at": "2026-11-01",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/cards/outside-echo-chamber.md",
+          "title": "Outside the Echo Chamber: optimizing performance after deployment feedback",
+          "source_sha256": "5aeb9c4855491a9e0165c222ed862bdd525b461b13acfe98bfcf218e0042a0c3",
+          "related": [
+            "berk-nash",
+            "performative-prediction"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_54da5dd496fc8191b2effd27d13344d9",
+          "url": "https://chatgpt.com/space/page_54da5dd496fc8191b2effd27d13344d9",
+          "published_at": "2026-11-01"
+        }
+      }
+    },
+    {
+      "ref_id": 29,
+      "slug": "model-collapse",
+      "title": "模型崩溃 为什么只学习上一代输出会逐渐丢失内容",
+      "category": "feedback",
+      "source_path": "cards/model-collapse.md",
+      "paper_title": "Shumailov et al. (2024). AI models collapse when trained on recursively generated data. Nature 631:755–759; 含2025修订.",
+      "paper_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11269175/",
+      "page_id": "page_f1c8b14609b08191ac3df237246c06a1",
+      "url": "https://chatgpt.com/space/page_f1c8b14609b08191ac3df237246c06a1",
+      "related": [
+        "berk-nash",
+        "data-accumulation",
+        "feedback",
+        "limited-discriminators"
+      ],
+      "source_sha256": "d3cca103df278091a6b54779a4396446d16e122f7da44926c097dd491cffe670",
+      "updated_at": "2026-11-01",
+      "published_at": "2026-11-01",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/cards/model-collapse.md",
+          "title": "Model collapse: why learning only from the previous generation loses content",
+          "source_sha256": "4598ffcddd62654ee485189f3c5c2ef8167372f45cabe240b467b3ff27136c43",
+          "related": [
+            "berk-nash",
+            "data-accumulation",
+            "feedback",
+            "limited-discriminators"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_b7ed409574448191af8ddda57afceee9",
+          "url": "https://chatgpt.com/space/page_b7ed409574448191af8ddda57afceee9",
+          "published_at": "2026-11-01"
+        }
+      }
+    },
+    {
+      "ref_id": 30,
+      "slug": "data-accumulation",
+      "title": "数据累积 为什么保留历史会改变自训练的长期误差",
+      "category": "feedback",
+      "source_path": "cards/data-accumulation.md",
+      "paper_title": "Gerstgrasser et al. (2024). Is Model Collapse Inevitable? Breaking the Curse of Recursion by Accumulating Real and Synthetic Data. arXiv v2.",
+      "paper_url": "https://arxiv.org/abs/2404.01413v2",
+      "page_id": "page_93beae39534c8191b1633805b3728ff9",
+      "url": "https://chatgpt.com/space/page_93beae39534c8191b1633805b3728ff9",
+      "related": [
+        "model-collapse"
+      ],
+      "source_sha256": "6a5b979166bdc5ce8cae105d6525aab91b959022aecd270ada22b66062e9b217",
+      "updated_at": "2026-11-01",
+      "published_at": "2026-11-01",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/cards/data-accumulation.md",
+          "title": "Data accumulation: why retaining history changes self-training error",
+          "source_sha256": "49225a8fbb2423ea0564f27edd73af06675679dfe01f3f4da7fbf2d89a6831cb",
+          "related": [
+            "model-collapse"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_a9bf1a4de1f081918c7da5e76600942a",
+          "url": "https://chatgpt.com/space/page_a9bf1a4de1f081918c7da5e76600942a",
+          "published_at": "2026-11-01"
+        }
+      }
+    },
+    {
+      "ref_id": 31,
+      "slug": "reward-overoptimization",
+      "title": "奖励过优化 为什么代理分数提高而参考表现下降",
+      "category": "feedback",
+      "source_path": "cards/reward-overoptimization.md",
+      "paper_title": "Gao, Schulman & Hilton (2023). Scaling Laws for Reward Model Overoptimization. ICML.",
+      "paper_url": "https://proceedings.mlr.press/v202/gao23h.html",
+      "page_id": "page_98774de151988191a12ed101c4a26cfe",
+      "url": "https://chatgpt.com/space/page_98774de151988191a12ed101c4a26cfe",
+      "related": [
+        "berk-nash",
+        "limited-discriminators"
+      ],
+      "source_sha256": "c4142b1f10b300aeb0a3f32b186f3d0160403b10ab619b0a4d264908aec4c10e",
+      "updated_at": "2026-11-01",
+      "published_at": "2026-11-01",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/cards/reward-overoptimization.md",
+          "title": "Reward overoptimization: why proxy scores rise while reference scores fall",
+          "source_sha256": "286b288b911ca942ab30e47fef9a75aea77375a74545d12fd68793124a6a1a1b",
+          "related": [
+            "berk-nash",
+            "limited-discriminators"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_3ca5c6e8dcd481918a33ed5d8d4be86b",
+          "url": "https://chatgpt.com/space/page_3ca5c6e8dcd481918a33ed5d8d4be86b",
+          "published_at": "2026-11-01"
+        }
+      }
+    },
+    {
+      "ref_id": 32,
+      "slug": "limited-discriminators",
+      "title": "有限判别器 分不清两个分布不等于它们相同",
+      "category": "feedback",
+      "source_path": "cards/limited-discriminators.md",
+      "paper_title": "Arora et al. (2017). Generalization and Equilibrium in Generative Adversarial Nets (GANs). ICML.",
+      "paper_url": "https://proceedings.mlr.press/v70/arora17a.html",
+      "page_id": "page_b942ede9d7188191a31138a44e942053",
+      "url": "https://chatgpt.com/space/page_b942ede9d7188191a31138a44e942053",
+      "related": [
+        "berk-nash",
+        "feedback",
+        "model-collapse",
+        "reward-overoptimization"
+      ],
+      "source_sha256": "456e5593abb0b3718c28265660aca7e9a298b948edd844b15d86be19530137cc",
+      "updated_at": "2026-11-01",
+      "published_at": "2026-11-01",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/cards/limited-discriminators.md",
+          "title": "Finite discriminators: indistinguishable distributions need not be identical",
+          "source_sha256": "4a4c1c8df02464e273759cd9c73fc3f4b33f9005a2e3ebfafb9f071e010fbafa",
+          "related": [
+            "berk-nash",
+            "feedback",
+            "model-collapse",
+            "reward-overoptimization"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_403e687924d08191bb3ec6cb9e5ead66",
+          "url": "https://chatgpt.com/space/page_403e687924d08191bb3ec6cb9e5ead66",
+          "published_at": "2026-11-01"
+        }
+      }
+    }
+  ],
+  "topics": [
+    {
+      "slug": "feedback",
+      "title": "反馈怎样纠正学习者",
+      "category": "feedback",
+      "source_path": "topics/feedback.md",
+      "page_id": "page_2a50351fa76c8191b6ff21f4edf8916a",
+      "url": "https://chatgpt.com/space/page_2a50351fa76c8191b6ff21f4edf8916a",
+      "related": [
+        "berk-nash",
+        "data-accumulation",
+        "hyperagents",
+        "limited-discriminators",
+        "model-collapse",
+        "plasticity",
+        "stop"
+      ],
+      "updated_at": "2026-11-01",
+      "source_sha256": "86e6c2d02c271c8d7ce67c9aab40906d5531660bdb78cb9e6e89ee0c7a86d22d",
+      "translations": {
+        "en": {
+          "source_path": "translations/en/topics/feedback.md",
+          "title": "How feedback corrects a learner",
+          "source_sha256": "90419f5b31bfdef57a33c1a06ccbbf88a0f7cb28100497b18f98d78e2fc4f3bd",
+          "related": [
+            "berk-nash",
+            "data-accumulation",
+            "hyperagents",
+            "limited-discriminators",
+            "model-collapse",
+            "plasticity",
+            "stop"
+          ],
+          "updated_at": "2026-11-01",
+          "page_id": "page_70e157064b608191bf68ce8bc2c5142e",
+          "url": "https://chatgpt.com/space/page_70e157064b608191bf68ce8bc2c5142e",
+          "published_at": "2026-11-01"
+        }
+      }
+    }
+  ]
+}

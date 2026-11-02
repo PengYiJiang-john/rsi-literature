@@ -1,0 +1,32 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><title>可用信息 同一份证据为何对不同学习者作用不同 · RSI Literature</title><meta name="description" content="从经典理论到现代自修改系统，围绕价值、认识与学习机制，理解反馈为何支持进步，也可能维持错误。"><link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../../assets/styles.css"><script src="../../assets/search-index.js" defer></script><script src="../../assets/app.js" defer></script></head>
+<body data-lang="zh" data-root="../../"><a class="skip-link" href="#main">跳到正文</a>
+<header class="site-header"><a class="brand" href="../../zh/index.html"><span class="brand-mark" aria-hidden="true">R</span><span>RSI <span class="brand-detail">/ Literature</span></span></a>
+<nav class="top-nav" aria-label="主导航"><a href="../../zh/review.html">主综述</a><a href="../../zh/library.html">阅读地图</a></nav>
+<div class="header-actions"><button class="search-open" type="button" aria-label="搜索文章" aria-haspopup="dialog" aria-controls="search-dialog"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>搜索文章</span><kbd>/</kbd></button><a class="language-switch" lang="en" hreflang="en" href="../../en/articles/usable-information.html">EN</a></div></header><div class="page-layout with-toc"><main id="main"><details class="mobile-toc"><summary>本文目录</summary><a href="#section-1">先固定谁在使用信息</a><a href="#section-2">计算为什么能增加可用性</a><a href="#section-3">可用多少与已经学到多少要分开</a><a href="#section-4">原论文与核验位置</a></details><a class="back-link" href="../library.html#epistemic">← 返回阅读地图</a><article><header class="reading-header"><p class="eyebrow">认识与交互</p><h1>可用信息 同一份证据为何对不同学习者作用不同</h1><div class="article-meta"><span>文献解读</span><span>2 分钟</span><a class="source-link" href="https://arxiv.org/abs/2002.10689v1" rel="noopener noreferrer">原论文 ↗</a></div></header><div class="prose"><p>一份数据包含某个规律，不代表任何模型都能读出它。一个简单示意是：两个输入各自独立、等概率取 +1 或 −1，结果由它们的乘积决定，而模型只能对给定特征作线性读出。直接给两个输入与先算出乘积再交给模型，使用的是同一份证据，却可能产生完全不同的预测效果。Xu 等用“可用信息”描述这种差别。</p>
+<h2 id="section-1">先固定谁在使用信息</h2>
+<p>设 X 是输入，Y 是要预测的结果，𝒱 是允许使用的预测模型集合。模型 f 看到 X 后，为 Y 的各个可能取值分配概率。f(X)(Y) 表示它给实际出现的结果所分配的概率。</p>
+<p>论文用对数损失评价预测。模型如果反复给实际发生的结果很低概率，就会付出较大的损失。比较集合中所有允许的模型，取它们能够达到的最低平均损失，得到条件 V-熵：</p>
+<div class="equation"><p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mi>𝒱</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo>∣</mo><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><munder><mo>inf</mo><mrow><mi>f</mi><mo>∈</mo><mi>𝒱</mi></mrow></munder><mi>𝔼</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>−</mi><mo>log</mo><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+H_{\mathcal V}(Y\mid X)
+=\inf_{f\in\mathcal V}\mathbb E[-\log f(X)(Y)].
+</annotation></semantics></math></p>
+</div>
+<p>这里的 inf 表示这组模型损失能够逼近的最低值，期望是对数据平均。再计算不看 X 时同类模型能达到的最低损失 H𝒱(Y)，两者的差就是输入提供的可用信息：</p>
+<div class="equation"><p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mi>𝒱</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo>→</mo><mi>Y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mi>H</mi><mi>𝒱</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><msub><mi>H</mi><mi>𝒱</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo>∣</mo><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+I_{\mathcal V}(X\to Y)
+=H_{\mathcal V}(Y)-H_{\mathcal V}(Y\mid X).
+</annotation></semantics></math></p>
+</div>
+<p>这个差回答的是：允许这类模型看输入，最多能把预测改善多少？若模型族允许忽略输入，多给输入至少可以保持原来的最佳预测办法，所以差值非负。</p>
+<h2 id="section-2">计算为什么能增加可用性</h2>
+<p>仅对输入作确定性处理，不会增加它与预测目标之间的 Shannon 互信息。可是，前面的乘积示意说明，处理可以把同一规律改写成某类模型容易使用的形式。这里没有引入新证据，改变的是证据对当前预测者是否有用。</p>
+<p>论文在合成树结构恢复等任务中比较不同信息估计方法。任务要求根据数据判断变量之间的联系，因此，估计器如何衡量关系中的信息，会影响最终恢复的结构。</p>
+<h2 id="section-3">可用多少与已经学到多少要分开</h2>
+<p>定义取的是模型族中的最佳预测表现。某次训练可能尚未找到这个模型，所以可用信息不等于当前模型已经利用的信息。当前损失离类内最优多远，是训练进度问题；换一个更强模型族后，最优值还能下降多少，是能力范围问题。</p>
+<p><a href="../../zh/articles/merged-staircase.html">合并阶梯</a>研究训练能沿什么路径获得新特征，<a href="../../zh/articles/compression-progress.html">压缩进展</a>比较一次更新前后的实际改善。它们分别研究可用信息如何被学到，以及学习已经带来多少变化。</p>
+<h2 id="section-4">原论文与核验位置</h2>
+<p>Yilun Xu 等（2020），<em>A Theory of Usable Information under Computational Constraints</em>，ICLR。<a rel="noopener noreferrer" href="https://arxiv.org/abs/2002.10689v1">所用 arXiv v1</a>；<a rel="noopener noreferrer" href="https://arxiv.org/html/2002.10689v1">正文</a>。</p>
+<p>核验位置：定义1–3、命题2、§3.2、定理1及 §6.1。</p>
+</div><section class="related-reading"><h2>接着阅读</h2><div><a href="compression-progress.html">压缩进展 用刚学会的规律选择下一段经验<span aria-hidden="true">→</span></a><a href="merged-staircase.html">合并阶梯 简单特征怎样成为后续学习的起点<span aria-hidden="true">→</span></a></div></section></article></main><aside class="page-toc"><nav aria-label="本文目录"><span class="toc-label">本文目录</span><a href="#section-1">先固定谁在使用信息</a><a href="#section-2">计算为什么能增加可用性</a><a href="#section-3">可用多少与已经学到多少要分开</a><a href="#section-4">原论文与核验位置</a></nav></aside></div>
+<footer class="site-footer"><span>RSI、反馈与学习动力学</span><span><a href="../../zh/library.html">阅读地图</a><span class="footer-dot">·</span><a href="../../zh/index.html#downloads">PDF</a></span></footer>
+<dialog id="search-dialog" aria-labelledby="search-title"><form method="dialog" class="search-heading"><h2 id="search-title">搜索文章</h2><button aria-label="关闭">×</button></form><label class="sr-only" for="search-input">搜索文章</label><input id="search-input" type="search" autocomplete="off" placeholder="标题、概念或文献"><p id="search-count" role="status" aria-live="polite"></p><ul id="search-results"></ul></dialog></body></html>

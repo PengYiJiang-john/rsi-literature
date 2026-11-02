@@ -1,0 +1,100 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><title>RSI、反馈与学习动力学 · RSI Literature</title><meta name="description" content="从经典理论到现代自修改系统，围绕价值、认识与学习机制，理解反馈为何支持进步，也可能维持错误。"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/styles.css"><script src="../assets/search-index.js" defer></script><script src="../assets/app.js" defer></script></head>
+<body data-lang="zh" data-root="../"><a class="skip-link" href="#main">跳到正文</a>
+<header class="site-header"><a class="brand" href="../zh/index.html"><span class="brand-mark" aria-hidden="true">R</span><span>RSI <span class="brand-detail">/ Literature</span></span></a>
+<nav class="top-nav" aria-label="主导航"><a href="../zh/review.html">主综述</a><a href="../zh/library.html">阅读地图</a></nav>
+<div class="header-actions"><button class="search-open" type="button" aria-label="搜索文章" aria-haspopup="dialog" aria-controls="search-dialog"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>搜索文章</span><kbd>/</kbd></button><a class="language-switch" lang="en" hreflang="en" href="../en/review.html">EN</a></div></header><div class="page-layout with-toc"><main id="main"><details class="mobile-toc"><summary>本文目录</summary><a href="#section-1">一、价值与评价：先区分训练奖励与最终目标</a><a href="#section-2">目标本身改变时，需要说明按谁的标准评价</a><a href="#section-3">决策论把“是否值得修改”也纳入选择</a><a href="#section-4">二、认识与交互：获得证据，还要能够利用证据</a><a href="#section-5">认识的自修改：工具、技能与世界模型</a><a href="#section-6">学习机制的自修改：改进程序也能被改进</a><a href="#section-7">四、反馈怎样支持或限制自我改进</a></details><article><header class="reading-header"><p class="eyebrow">LITERATURE REVIEW</p><h1>RSI、反馈与学习动力学</h1><p class="standfirst">价值、认识与学习机制的自我修改｜文献综述</p></header><div class="prose"><p>递归自我改进（RSI）关心的是：系统学到的能力，能否帮助它改进下一轮学习？例如，会写代码的系统可以修改自己的工具，也可以修改负责生成改进方案的程序。两者都属于自修改，但改变的环节不同。本文按价值、认识和学习机制梳理这些研究，再讨论同一反馈循环为何既可能推动进步，也可能维持错误。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>类别</th>
+<th>修改什么</th>
+<th>需要回答的问题</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>价值与评价</td>
+<td>目标、训练奖励、评分规则</td>
+<td>凭什么判断修改更好？</td>
+</tr>
+<tr class="even">
+<td>认识与交互</td>
+<td>工具、实验选择、世界模型</td>
+<td>怎样获得并理解纠错证据？</td>
+</tr>
+<tr class="odd">
+<td>学习机制</td>
+<td>更新规则、架构、记忆、改进程序</td>
+<td>怎样让下一轮更会学习？</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="section-1">一、价值与评价：先区分训练奖励与最终目标</h2>
+<p>奖励是训练时给学习者的信号，最终目标是评价学习结果的标准。<a href="../zh/articles/internal-rewards.html">Singh 等</a>说明，两者可以不同：只奖励眼前收益，可能学不到以后有用的探索行为；合适的内部奖励反而能提高长期收益。价值函数则是在给定奖励下估计预期回报。改进估计、改写奖励、改变目标，是三个不同问题。</p>
+<p>固定最终目标时，奖励设计可写成下面的双层优化。先按奖励 r 训练出策略 A(r)，再用外部标准 J 评价它；选择的是训练效果最好的奖励：</p>
+<div class="equation"><p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>r</mi><mo>*</mo></msup><mo>∈</mo><munder><mo>argmax</mo><mi>r</mi></munder><mi>𝔼</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>J</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>r</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">
+{r}^{*} \in  {\operatorname*{argmax}}_{r} \mathbb{E}[J(A(r))]
+</annotation></semantics></math></p>
+</div>
+<p>期望表示对训练随机性取平均。<a href="../zh/articles/eureka.html">Eureka</a>把这一思路做成循环：语言模型写奖励代码，强化学习算法据此训练策略，再把训练结果交回语言模型修改奖励。作者比较一次生成更多候选与分轮使用反馈，也检查去掉各奖励项的训练统计会怎样。结果支持反馈能帮助奖励搜索。在固定任务目标下，它改进的是训练手段。</p>
+<h2 id="section-2">目标本身改变时，需要说明按谁的标准评价</h2>
+<p><a href="../zh/articles/utility-self-modification.html">Everitt 等</a>研究效用函数也可被修改的主体。若用修改后的标准评价修改，主体可能通过把所有结果都判为“好”来获得高效用。若沿用当前标准，并预测修改会怎样改变未来行为，修改的激励就不同。论文在信念和初始效用不直接依赖修改、初始策略最优等条件下证明：按当前标准预测修改后行为的规则，可以保持实际行动对原目标的最优性。</p>
+<h2 id="section-3">决策论把“是否值得修改”也纳入选择</h2>
+<p>修改和计算都要付出成本。<a href="../zh/articles/metareasoning.html">Hay 等</a>研究是否值得再做一次模拟：只有它对最终决策的预期帮助超过成本，才值得继续。<a href="../zh/articles/godel-machine.html">Gödel machine</a>把判断扩展到程序自修改，包括修改证明搜索器；系统先证明现在修改优于继续搜索，再执行修改。这个保证依赖公理和可证明性。现代 RSI 多用任务实验筛选修改，因此下文还需区分证明保证与实验依据。</p>
+<h2 id="section-4">二、认识与交互：获得证据，还要能够利用证据</h2>
+<h3 id="选择信息要看它能否改善行动">选择信息，要看它能否改善行动</h3>
+<p>目标确定后，学习者还要决定去看什么、试什么。<a href="../zh/articles/blackwell-information.html">Blackwell</a>比较两种信息来源：如果只根据信号本身、按固定规则删减或加噪，就能生成另一种信号，那么在目标相同、不计获取成本且能最优使用信息时，保留详细信号不会降低决策价值。这里衡量信息的依据，是它能帮助作出什么选择。</p>
+<p><a href="../zh/articles/dual-control.html">双重控制</a>进一步让行动承担两种作用：完成当前任务，同时试探未知规律。控制实验改变探索成本和未知参数对任务的重要性，检验何时值得为未来学习牺牲眼前收益。<a href="../zh/articles/information-directed-sampling.html">信息导向采样（IDS）</a>则把探索指向“哪个行动最好”。它权衡当前选错行动的预期损失与关于最优行动的信息增益；无需同等重视世界中所有未知细节。</p>
+<h3 id="相同的信息对不同学习者未必同样有用">相同的信息，对不同学习者未必同样有用</h3>
+<p>上述决策分析还需要补上一个问题：学习者能否读懂拿到的信息？<a href="../zh/articles/usable-information.html">Xu 等</a>把可用的预测模型限制在集合 𝒱 中，用这组模型能达到的最低预测损失定义条件 V-熵：</p>
+<div class="equation"><p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mi>𝒱</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo>∣</mo><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><munder><mo>inf</mo><mrow><mi>f</mi><mo>∈</mo><mi>𝒱</mi></mrow></munder><mi>𝔼</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>−</mi><mo>log</mo><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">
+{H}_{\mathcal{V}}(Y\mid X) = {\inf}_{f\in \mathcal{V}} \mathbb{E}[-\log f(X)(Y)]
+</annotation></semantics></math></p>
+</div>
+<p>X 是输入，Y 是要预测的结果，f(X)(Y) 是模型分给该结果的概率。比较“不看 X”和“看 X”时的最低损失，就得到输入对这类模型的可用信息。只要允许模型忽略输入，这个差值就非负。仅对输入做确定性处理，不会增加它与预测目标的 Shannon 互信息，却可能让有限模型更容易识别其中的规律。</p>
+<p><a href="../zh/articles/merged-staircase.html">Abbe 等</a>研究学会简单特征怎样帮助学习复杂特征。例如，目标中包含 x₁、x₁x₂、x₁x₂x₃，就提供了逐级扩展的起点。其“合并阶梯”条件把这种结构一般化：乘积项可以排序，每项最多引入一个新变量。若只有孤立的高阶乘积项，就缺少这种低阶学习信号。相关结果针对均匀比特输入、稀疏目标与宽两层网络，使用平均场极限及随输入维数同阶增长的样本规模。它研究的是给定算法能怎样学到结构。</p>
+<h3 id="已经学到多少也可以影响下一步去学什么">已经学到多少，也可以影响下一步去学什么</h3>
+<p><a href="../zh/articles/compression-progress.html">Schmidhuber</a>用压缩进展选择经验：在同一段历史上，新压缩器比旧压缩器省下多少编码长度，就奖励多少。奖励来自实际学到的规律，而非数据仅仅看起来新奇；更新算法可以保持固定。由此，过去的学习结果开始影响未来的经验选择。</p>
+<p><a href="../zh/articles/epiplexity.html">Finzi 等</a>的 epiplexity 关注另一个对象：有限计算时间内，数据中有多少结构可被学到。它把描述数据的编码分为两部分：一部分描述模型学到的规律，另一部分记录仍无法预测的内容。在计算时间受限时，选择总编码最短的模型；epiplexity 衡量其中描述规律的编码长度。棋局预训练实验显示，这种结构对不同下游任务的帮助并不相同。因此，“数据有可学结构”“学习已经取得进展”和“任务表现改善”需要分别判断。</p>
+<h2 id="section-5">认识的自修改：工具、技能与世界模型</h2>
+<p>现代系统通过不同方式改变与世界的交互。Toolformer 学会使用既有工具，Voyager 把学到的技能保存成新工具，Memento 3 则修改用来预测行动后果的世界模型。三者分别回答怎样调用、怎样复用、怎样理解。</p>
+<h3 id="工具与技能让已有能力成为下一步的资源">工具与技能：让已有能力成为下一步的资源</h3>
+<p><a href="../zh/articles/toolformer.html">Toolformer</a>让语言模型尝试调用计算器等工具。系统只保留能降低后续文本预测误差的调用样本，再用这些样本训练模型。作者比较同语料下不学工具调用的模型，也检查推理时关掉工具会怎样。计算器带来的额外收益说明，模型学到的调用方式确实有用。被改变的是何时、怎样调用，工具集合和样本筛选规则仍由人给定。</p>
+<p><a href="../zh/articles/voyager.html">Voyager</a>在游戏中生成执行动作的代码，根据环境反馈反复修正，再把成功代码存入技能库。后续任务可以直接调用或组合旧技能。移除技能库后，探索更早停滞；新世界任务进一步检验了技能复用。它展示了知识积累如何帮助后续学习。这里增长的是技能内容，选题、检索和自验证规则仍预先设定。</p>
+<h3 id="世界模型用过去的经验预测尚未做过的事">世界模型：用过去的经验预测尚未做过的事</h3>
+<p><a href="../zh/articles/memento-3.html">Memento 3</a>把经验写成描述环境规律的“规则书”，再转成可运行的世界模型。系统先在模型中预测行动后果，再去环境执行，并根据新反馈修订规则。在删除规则书的对照中，两种系统都能完成所选游戏，但保留规则书需要的环境动作更少。这个比较说明，组织和修订经验能够改善下一轮交互。</p>
+<p>世界模型还必须接受纠错。<a href="../zh/articles/bayesian-model-criticism.html">Gelman–Shalizi</a>区分两种工作：在已有模型中更新信念，以及发现模型无法解释数据后修改模型本身。这个区分也说明了 Memento 的验证边界：重现已有经历可以发现部分错误，但多个模型仍可能解释同一历史，对未试过的行动却给出不同预测。要区分它们，还需要新的交互。</p>
+<h3 id="三学习机制从学习知识到学习更新规则">三、学习机制：从学习知识到学习更新规则</h3>
+<p>工具和世界模型改变了系统能做什么；元学习进一步改变系统怎样学。<a href="../zh/articles/learned-optimizers.html">学习型优化器</a>根据梯度历史生成参数更新，<a href="../zh/articles/neural-architecture-search.html">架构搜索</a>学习提出哪些网络结构，<a href="../zh/articles/meta-reinforcement-learning.html">元强化学习</a>则把交互历史存入循环网络状态，据此适应新任务。最后一种方法在测试时保持网络权重不变，适应发生在内部状态中。</p>
+<p>这些工作分别用传统优化器、随机搜索或既有学习规则作比较，检验学得的机制是否有效。但训练这些机制的外层算法仍由人设定。由此引出下一步：负责产生改进的程序，能否也成为系统自己的修改对象？</p>
+<h2 id="section-6">学习机制的自修改：改进程序也能被改进</h2>
+<h3 id="stop-与-dgm让修改后的程序参与下一轮">STOP 与 DGM：让修改后的程序参与下一轮</h3>
+<p>找到更好的任务程序，与更会修改程序，需要分开评价。<a href="../zh/articles/stop.html">STOP</a>让一个代码改进程序修改自身，再让新版本去改进一组下游程序，以后者的平均任务表现评价新版本。与初始改进程序、单次推理和贪心迭代相比，部分模型取得收益，较弱模型也可能退化。它把“产生改进的能力”变成了直接优化的对象。</p>
+<p><a href="../zh/articles/darwin-godel-machine.html">Darwin Gödel Machine（DGM）</a>让修改后的程序既解决编程任务，也负责生成下一轮修改，并保存多个历史版本。作者设置两种对照：始终由最初程序负责修改；只沿最新可用版本继续修改。始终由最初程序负责修改时，后续改善较早趋缓；只保留最新版本时，则更容易被较差修改阻断。比较支持两点：新能力参与后续修改有帮助，历史分支也能保留继续探索的机会。</p>
+<h3 id="hyperagents进一步修改产生改进方案的过程">HyperAgents：进一步修改产生改进方案的过程</h3>
+<p>DGM 仍由固定的外层流程生成修改指令。<a href="../zh/articles/hyperagents.html">HyperAgents</a>把任务程序和负责修改它的程序一起开放给系统编辑，允许错误诊断、方案生成和后续修改的组织方式发生变化。DGM 依靠编程能力同时支持解题和自修改；HyperAgents 进一步检验这类改进能否迁移到其他任务。两者的推进关系在于可修改范围和迁移证据。</p>
+<p>为评价改进能力，作者在测试时固定改进程序，让它从给定任务程序出发生成候选，再用验证集选优、测试集评价。迁移来的改进程序在新任务上带来更大改善。但迁移也带入了任务代码；数学评分的初始失败还包含输出格式错误。因此，这些实验支持整个系统的跨任务迁移，尚未完全分离改进程序自身的贡献。</p>
+<h3 id="自修改的效果需要实验检验">自修改的效果，需要实验检验</h3>
+<p>Gödel machine 要求先证明修改有益；DGM 等系统先尝试修改，再用任务实验判断。历史版本即使暂时较弱，也可能被保留，供以后继续修改。基础模型、外部评价和部分版本选择规则仍固定。这使递归改进可以在有限任务上检验，其有效范围也由这些实验条件决定。</p>
+<h3 id="持续学习补上一个条件系统仍需学得动">持续学习补上一个条件：系统仍需学得动</h3>
+<p><a href="../zh/articles/plasticity.html">Dohare 等</a>考察持续训练后的网络还能否学好新任务，这种能力称为“可塑性”。实验发现，常规网络可能逐渐失去可塑性；重置低效用单元可以缓解问题。这与忘掉旧知识是不同的现象。该方法的重置规则由人设定，但它揭示了 RSI 所需的条件：即使新反馈不断到来，系统仍要保有吸收它的能力。</p>
+<h2 id="section-7">四、反馈怎样支持或限制自我改进</h2>
+<h3 id="berknash-解释行动与证据怎样相互支持">Berk–Nash 解释行动与证据怎样相互支持</h3>
+<p>反馈能否纠正当前判断，是这些研究的共同问题。<a href="../zh/articles/berk-nash.html">Berk–Nash</a>允许主观模型类错设：行动决定哪些世界回复出现，信念只支持最符合这些回复的模型，实际行动又在该信念下最优。最佳拟合集合由行动频率加权的预测误差决定：</p>
+<div class="equation"><p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>Θ</mi><mo>*</mo></msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>ρ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><munder><mo>argmin</mo><mi>θ</mi></munder><msub><mi>𝔼</mi><mrow><mi>a</mi><mo>∼</mo><mi>ρ</mi></mrow></msub><mrow><mi mathvariant="normal">K</mi><mi mathvariant="normal">L</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>Q</mi><mi>W</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>⋅</mi><mo>∣</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="false" form="postfix">‖</mo><msub><mi>Q</mi><mi>θ</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>⋅</mi><mo>∣</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+{\Theta }^{*}(\rho ) = {\operatorname*{argmin}}_{\theta } {\mathbb{E}}_{a\sim \rho } \mathrm{KL}({Q}_{W}(\cdot \mid a) \Vert  {Q}_{\theta }(\cdot \mid a))
+</annotation></semantics></math></p>
+</div>
+<p>ρ 是行动频率，θ 是主观模型参数；两个 Q 分别表示真实与主观反馈分布，KL 衡量预测差异。信念只给 Θ* 中的模型分配概率，按这些概率计算预期收益；实际采用的行动须使该收益最大。拟合与行动两个条件共同维持这个状态。</p>
+<p><a href="../zh/articles/self-confirming-equilibrium.html">自我确认均衡</a>突出未尝试行动上的错误；Berk–Nash还允许模型无法正确解释已见反馈。扩大探索与修正模型类因此解决不同问题。均衡也不保证收敛：<a href="../zh/articles/endogenous-misspecified-learning.html">Fudenberg–Lanzani–Strack</a>证明，在其固定模型类的贝叶斯设定下，若行动收敛，该行动须在所有只支持最佳拟合模型的信念下最优。</p>
+<h3 id="gan-与模型崩溃考察反馈的分辨能力与来源">GAN 与模型崩溃考察反馈的分辨能力与来源</h3>
+<p><a href="../zh/articles/limited-discriminators.html">GAN 的有限判别器理论</a>追问：真实样本已经拿到，评价器能否读出其中的差异？Arora等表明，缺少大量多样性的生成分布仍可能骗过受限判别器。<a href="../zh/articles/reward-overoptimization.html">奖励过优化</a>则显示，持续优化代理评分会扩大它与参考评分的分歧。反馈依据存在，还需要足够的分辨能力。</p>
+<p><a href="../zh/articles/model-collapse.html">模型崩溃</a>追问：下一轮数据由谁产生？上一代模型若成为新数据源，采样遗漏与拟合误差会进入后代。<a href="../zh/articles/data-accumulation.html">数据累积研究</a>通过保留原始与历代数据改变这条传递路径。这与Berk–Nash的真实但选择性反馈、GAN的真实样本参照形成比较：反馈来源、证据覆盖与分辨能力共同影响纠错，各项结论仍依赖各自设定。</p>
+<h3 id="棋类与代码为何能利用自生成经验">棋类与代码为何能利用自生成经验</h3>
+<p><a href="../zh/articles/feedback.html">棋类和代码的反馈分析</a>给出两个具体例子。AlphaZero自己选择对局，但胜负由规则结算；网络引导搜索，搜索与对局结果又训练网络。CodeRL自己生成程序，但编译和测试给出执行结果，评价网络再把结果转成训练信号。自己产生候选，不等于自己决定候选正确。</p>
+<p>棋类把已知规则的后果经搜索转成训练目标；代码把候选程序经执行转成具体结果。它们都让明确、可重复的检查进入学习，使自生成经验可以反复用于改进下一次选择。</p>
+<h3 id="部署还会改变反馈分布">部署还会改变反馈分布</h3>
+<p><a href="../zh/articles/performative-prediction.html">Performative prediction</a>研究模型部署后引起的数据变化。在强凸、联合平滑且分布变化足够弱等条件下，反复重训可以稳定，却未必达到部署后的最低风险。<a href="../zh/articles/outside-echo-chamber.html">Miller等</a>据此研究先学习数据如何响应部署，再利用该响应优化的方法。反馈不仅检验当前模型，也可能随模型行动而改变。</p>
+</div></article><section class="downloads" id="downloads"><h2>下载主综述</h2><div class="download-grid"><a href="../downloads/rsi-review-en-plain.pdf" download><span>英文 · 纯净版 PDF</span><span aria-hidden="true">↓</span></a><a href="../downloads/rsi-review-en-linked.pdf" download><span>英文 · 链接版 PDF</span><span aria-hidden="true">↓</span></a><a href="../downloads/rsi-review-zh-plain.pdf" download><span>中文 · 纯净版 PDF</span><span aria-hidden="true">↓</span></a><a href="../downloads/rsi-review-zh-linked.pdf" download><span>中文 · 链接版 PDF</span><span aria-hidden="true">↓</span></a></div></section></main><aside class="page-toc"><nav aria-label="本文目录"><span class="toc-label">本文目录</span><a href="#section-1">一、价值与评价：先区分训练奖励与最终目标</a><a href="#section-2">目标本身改变时，需要说明按谁的标准评价</a><a href="#section-3">决策论把“是否值得修改”也纳入选择</a><a href="#section-4">二、认识与交互：获得证据，还要能够利用证据</a><a href="#section-5">认识的自修改：工具、技能与世界模型</a><a href="#section-6">学习机制的自修改：改进程序也能被改进</a><a href="#section-7">四、反馈怎样支持或限制自我改进</a></nav></aside></div>
+<footer class="site-footer"><span>RSI、反馈与学习动力学</span><span><a href="../zh/library.html">阅读地图</a><span class="footer-dot">·</span><a href="../zh/index.html#downloads">PDF</a></span></footer>
+<dialog id="search-dialog" aria-labelledby="search-title"><form method="dialog" class="search-heading"><h2 id="search-title">搜索文章</h2><button aria-label="关闭">×</button></form><label class="sr-only" for="search-input">搜索文章</label><input id="search-input" type="search" autocomplete="off" placeholder="标题、概念或文献"><p id="search-count" role="status" aria-live="polite"></p><ul id="search-results"></ul></dialog></body></html>

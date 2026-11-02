@@ -1,0 +1,540 @@
+{
+  "title": "RSI, Feedback and Learning Dynamics",
+  "subtitle": "Value, knowledge and learning mechanisms | Literature review",
+  "date": "2026-11-01",
+  "running_header": "RSI, Feedback and Learning Dynamics | Literature review",
+  "pages": [
+    {
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Recursive self-improvement (RSI) asks whether acquired capabilities can improve subsequent learning. A coding system might modify its tools or the program proposing further improvements. These change different parts of learning. We organize the literature by value, knowledge and learning mechanisms, then examine how feedback supports progress or sustains error."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Category",
+            "What changes",
+            "Central question"
+          ],
+          "widths_mm": [
+            35,
+            67,
+            72
+          ],
+          "rows": [
+            [
+              "Value and evaluation",
+              "Goals, rewards, scoring rules",
+              "What makes a change better?"
+            ],
+            [
+              "Knowledge and interaction",
+              "Tools, experiments, world models",
+              "How can evidence correct beliefs?"
+            ],
+            [
+              "Learning mechanisms",
+              "Updates, architecture, memory, improvers",
+              "How can later learning improve?"
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "1. Value and evaluation: rewards are not final goals"
+        },
+        {
+          "type": "p",
+          "text": "Training rewards guide learning; final objectives evaluate its outcome. [[internal-rewards|Singh et al.]] show how internal rewards can encourage exploration and improve long-term performance beyond immediate-reward optimization. A value function instead estimates return under a given reward. Improving that estimate, rewriting rewards and changing objectives are distinct problems."
+        },
+        {
+          "type": "p",
+          "text": "With the final objective fixed, reward design has two levels. A trains a policy using reward r; J evaluates that policy. Choose the reward giving the best training outcome:"
+        },
+        {
+          "type": "equation",
+          "text": "r* ∈ argmax_r E[J(A(r))]",
+          "nodes": [
+            {
+              "sup": [
+                "r",
+                "*"
+              ]
+            },
+            " ∈ ",
+            {
+              "sub": [
+                "argmax",
+                "r"
+              ]
+            },
+            " E[J(A(r))]"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "The expectation averages over training randomness. [[eureka|Eureka]] repeats this process: a language model writes rewards, reinforcement learning trains policies, and training feedback guides reward revision. Matched-candidate comparisons with one-shot generation, and removal of reward-component statistics, support feedback-guided search. The task objective stays fixed."
+        },
+        {
+          "type": "heading",
+          "text": "Changing the objective changes the standard of improvement"
+        },
+        {
+          "type": "p",
+          "text": "[[utility-self-modification|Everitt et al.]] study utility self-modification. Evaluating changes by the new utility can favor declaring every outcome good. Evaluating predicted behavioral consequences by the current utility gives different incentives. With modification-independent initial utility and beliefs, an initially optimal policy, and their other assumptions, the latter rule preserves optimal behavior for the original objective."
+        },
+        {
+          "type": "heading",
+          "text": "Decision theory also asks whether modification is worthwhile"
+        },
+        {
+          "type": "p",
+          "text": "Computation and modification have costs. [[metareasoning|Hay et al.]] ask whether another simulation’s expected decision benefit justifies its cost. A [[godel-machine|Gödel machine]] changes its program, including its proof searcher, after proving that switching now beats continued search. This guarantee depends on its axioms and provability. Modern RSI systems commonly test changes experimentally instead."
+        }
+      ]
+    },
+    {
+      "title": "2. Knowledge and interaction: acquiring and using evidence",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Choose evidence for the decisions it can improve"
+        },
+        {
+          "type": "p",
+          "text": "Once an objective is set, a learner must decide what to observe or try. [[blackwell-information|Blackwell]] compares information sources through garbling: one signal can be produced from another by a fixed, state-independent random transformation. With the same objective, no acquisition cost and optimal use of information, retaining the more informative signal cannot lower decision value."
+        },
+        {
+          "type": "p",
+          "text": "[[dual-control|Dual control]] gives actions two roles: performing the task and learning its unknown dynamics. Control experiments vary exploration costs and the relevance of unknown parameters to test when future learning justifies an immediate sacrifice. [[information-directed-sampling|Information-directed sampling (IDS)]] targets which action is best, balancing current expected regret against information about the optimal action. Not every unknown detail deserves equal attention."
+        },
+        {
+          "type": "heading",
+          "text": "The same evidence need not be equally usable"
+        },
+        {
+          "type": "p",
+          "text": "Decision value does not settle whether a bounded learner can extract a pattern. [[usable-information|Xu et al.]] restrict predictors to a family 𝒱. Conditional V-entropy is the lowest expected prediction loss available within it:"
+        },
+        {
+          "type": "equation",
+          "text": "H_𝒱(Y|X)=inf_{f∈𝒱} E[−log f(X)(Y)]",
+          "nodes": [
+            {
+              "sub": [
+                "H",
+                "𝒱"
+              ]
+            },
+            "(Y|X) = ",
+            {
+              "sub": [
+                "inf",
+                "f∈𝒱"
+              ]
+            },
+            " E[−log f(X)(Y)]"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Here X is the input, Y the outcome, and f(X)(Y) the probability assigned to that outcome. The loss reduction from observing X defines usable information for this family. It is nonnegative when predictors may ignore X. Deterministic preprocessing cannot increase Shannon mutual information with the target, yet it can make a pattern accessible to a limited predictor."
+        },
+        {
+          "type": "p",
+          "text": "[[merged-staircase|Abbe et al.]] examine how simple features support learning more complex ones. Terms such as x₁, x₁x₂ and x₁x₂x₃ form successive steps. Their merged-staircase condition orders terms so that each introduces at most one new variable; an isolated high-order product lacks these low-order signals. The results concern sparse functions of uniform bits, wide two-layer networks, a mean-field limit and sample sizes of the same order as input dimension. They characterize learning by a specified algorithm."
+        },
+        {
+          "type": "heading",
+          "text": "Learning progress can guide what to experience next"
+        },
+        {
+          "type": "p",
+          "text": "[[compression-progress|Schmidhuber]] rewards compression progress: compare how efficiently the old and new compressors encode the same history. The reward reflects a pattern actually learned, rather than novelty alone. The update algorithm can remain fixed while past learning changes the choice of future experience."
+        },
+        {
+          "type": "p",
+          "text": "[[epiplexity|Finzi et al.]] study a different quantity: structure learnable within a computational time limit. A two-part code describes the learned model and the data it leaves unexplained. Among models satisfying the time constraint, choose one minimizing total description length; epiplexity is the model-description part. Board-game pretraining experiments show that such structure helps different downstream tasks differently. Learnable structure, realized learning progress and task improvement therefore require separate evaluation."
+        }
+      ]
+    },
+    {
+      "title": "Changing tools, skills and world models",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Modern systems change their interaction with the world in different ways. Toolformer learns to call existing tools; Voyager turns acquired skills into reusable tools; Memento 3 revises a world model used to predict action outcomes. They address use, reuse and understanding, respectively."
+        },
+        {
+          "type": "heading",
+          "text": "Tools and skills make existing capabilities reusable"
+        },
+        {
+          "type": "p",
+          "text": "[[toolformer|Toolformer]] samples API calls, retaining examples that reduce subsequent text-prediction loss, then trains on them. The authors compare models trained on the same corpus without tool use and disable tools at inference. The extra benefit from calculator access supports the usefulness of the learned calls. What changes is when and how to call; the available APIs and filtering rule remain specified by the researchers."
+        },
+        {
+          "type": "p",
+          "text": "[[voyager|Voyager]] writes action code in a game, revises it using environmental feedback and stores successful code in a skill library. Later tasks can call or combine these skills. Removing the library causes exploration to stall earlier; tasks in a new world further test reuse. The growing resource is skill content. Task selection, retrieval and self-verification procedures remain predefined."
+        },
+        {
+          "type": "heading",
+          "text": "World models use past experience to predict outcomes of untried actions"
+        },
+        {
+          "type": "p",
+          "text": "[[memento-3|Memento 3]] records environmental regularities in a rulebook and translates it into an executable world model. It predicts action outcomes in the model, executes them in the environment and revises rules using feedback. In an ablation without the rulebook, both systems complete the selected games, but retaining it requires fewer environmental actions. Organizing and revising experience can thus improve subsequent interaction."
+        },
+        {
+          "type": "p",
+          "text": "World models also need correction. [[bayesian-model-criticism|Gelman and Shalizi]] distinguish updating beliefs within a model class from revising the class when it fails to explain observations. This clarifies what replay validation can establish: several models may fit the same history yet disagree about untried actions. Distinguishing them requires further interaction."
+        },
+        {
+          "type": "heading",
+          "text": "3. Learning mechanisms: learning how to update"
+        },
+        {
+          "type": "p",
+          "text": "Tools and world models change what a system can do; meta-learning also changes how it learns. [[learned-optimizers|Learned optimizers]] produce parameter updates from gradient histories. [[neural-architecture-search|Neural architecture search]] learns which network designs to propose. [[meta-reinforcement-learning|Meta-reinforcement learning]] stores interaction history in a recurrent state to adapt to new tasks. In the last case, test-time weights remain fixed; adaptation occurs in the internal state."
+        },
+        {
+          "type": "p",
+          "text": "These studies compare learned mechanisms with conventional optimizers, random search or existing learning rules. The outer procedures that train those mechanisms remain designed by researchers. This raises the next question: can the program responsible for producing improvements itself become a target of modification?"
+        }
+      ]
+    },
+    {
+      "title": "Self-modifying learning: improving the improver",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "STOP and DGM: revised programs participate in later rounds"
+        },
+        {
+          "type": "p",
+          "text": "A better task program and a better program improver require different evaluations. [[stop|STOP]] lets an improver rewrite itself, then evaluates the revision by the average performance of downstream programs it improves. Against the initial improver, single-pass inference and greedy iteration, some models benefit while weaker ones can deteriorate. The ability to produce improvements becomes the explicit target."
+        },
+        {
+          "type": "p",
+          "text": "[[darwin-godel-machine|Darwin Gödel Machine (DGM)]] uses revised programs both to solve coding tasks and to generate later modifications, retaining an archive of versions. Two controls keep the initial program as the modifier or continue only from the latest accepted version. The former plateaus earlier; the latter is more vulnerable to poor changes. These comparisons support both using acquired capabilities in later modifications and retaining alternative branches for exploration."
+        },
+        {
+          "type": "heading",
+          "text": "HyperAgents also modifies the process that proposes changes"
+        },
+        {
+          "type": "p",
+          "text": "DGM retains a fixed outer procedure for issuing modification instructions. [[hyperagents|HyperAgents]] makes both the task program and its improvement program editable, allowing diagnosis, proposal generation and the organization of later changes to evolve. DGM uses coding ability for both task solving and self-modification; HyperAgents also tests transfer to other tasks. The advance concerns what is editable and the evidence for transfer."
+        },
+        {
+          "type": "p",
+          "text": "To evaluate improvement ability, the authors freeze an improver at test time, let it generate candidates from a specified task program, select on validation data and evaluate on test data. Transferred improvers yield larger gains on new tasks. However, task code also transfers, and initial failures on mathematics include output-format errors. The evidence supports system-level transfer without fully isolating the improver’s contribution."
+        },
+        {
+          "type": "heading",
+          "text": "Empirical acceptance differs from a proof of benefit"
+        },
+        {
+          "type": "p",
+          "text": "A Gödel machine requires a proof before changing itself. DGM and related systems try changes and evaluate task outcomes; even temporarily weaker versions may be retained for further revision. Foundation models, external evaluation and some selection rules remain fixed. These conditions make recursive improvement experimentally testable and define the scope of the evidence."
+        },
+        {
+          "type": "heading",
+          "text": "Continual learning requires retaining the ability to learn"
+        },
+        {
+          "type": "p",
+          "text": "[[plasticity|Dohare et al.]] ask whether a network can still learn new tasks after prolonged training. This capacity, called plasticity, can decline; resetting low-utility units mitigates the problem. This differs from forgetting old knowledge. The reset rule is designed by researchers, but the result identifies a requirement for RSI: continuing feedback is useful only if the system can still learn from it."
+        }
+      ]
+    },
+    {
+      "title": "4. How feedback supports or limits self-improvement",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Berk–Nash links chosen actions to supporting evidence"
+        },
+        {
+          "type": "p",
+          "text": "Can feedback correct current judgments? [[berk-nash|Berk–Nash equilibrium]] allows misspecified subjective models. Actions determine observed responses; beliefs support models fitting these responses best; actions maximize expected payoff under those beliefs. Best fit minimizes prediction error weighted by action frequencies:"
+        },
+        {
+          "type": "equation",
+          "text": "Θ*(ρ)=argmin_θ E_{a∼ρ} KL(Q_W(·|a)∥Q_θ(·|a))",
+          "nodes": [
+            {
+              "sup": [
+                "Θ",
+                "*"
+              ]
+            },
+            "(ρ) = ",
+            {
+              "sub": [
+                "argmin",
+                "θ"
+              ]
+            },
+            " ",
+            {
+              "sub": [
+                "E",
+                "a∼ρ"
+              ]
+            },
+            " KL(",
+            {
+              "sub": [
+                "Q",
+                "W"
+              ]
+            },
+            "(·|a) ∥ ",
+            {
+              "sub": [
+                "Q",
+                "θ"
+              ]
+            },
+            "(·|a))"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Here ρ gives action frequencies, θ indexes models, and the two Q distributions describe actual and subjective feedback. KL measures predictive discrepancy. Beliefs support only Θ* and weight the models’ predicted payoffs accordingly. Every action taken must maximize this expected payoff. Fitting and optimal action jointly sustain the equilibrium."
+        },
+        {
+          "type": "p",
+          "text": "[[self-confirming-equilibrium|Self-confirming equilibrium]] highlights errors about untried actions; Berk–Nash also allows incorrect explanations of observed feedback. Exploration and model revision therefore address different problems. Equilibrium need not imply convergence. In their Bayesian setting with a fixed model class, [[endogenous-misspecified-learning|Fudenberg, Lanzani and Strack]] show that if actions converge, their limit must be optimal under every belief supported on the best-fitting models."
+        },
+        {
+          "type": "heading",
+          "text": "GANs and model collapse: discrimination and data sources"
+        },
+        {
+          "type": "p",
+          "text": "With real samples available, [[limited-discriminators|limited-discriminator theory]] asks what differences an evaluator can detect. Arora et al. show that generators lacking substantial diversity can still fool restricted discriminators. [[reward-overoptimization|Reward overoptimization]] shows how optimizing a proxy score can widen its divergence from a reference score. Feedback requires an evaluator able to distinguish relevant errors."
+        },
+        {
+          "type": "p",
+          "text": "[[model-collapse|Model collapse]] asks who produces the next generation of data. When the previous model becomes the source, sampling omissions and fitting errors can pass to descendants. [[data-accumulation|Data accumulation]] changes this transmission by retaining original and historical data. Together with selective real feedback in Berk–Nash and real-sample comparisons in GANs, these studies distinguish feedback sources, coverage and discrimination as influences on correction."
+        },
+        {
+          "type": "heading",
+          "text": "Why board games and code can use self-generated experience"
+        },
+        {
+          "type": "p",
+          "text": "Our [[feedback|feedback guide for board games and code]] develops two examples. AlphaZero chooses its own games, but rules determine outcomes; its network guides search, and search and game outcomes train the network. CodeRL generates programs, but compilation and tests produce execution results, which a critic turns into training signals. Producing candidates is different from deciding that they are correct."
+        },
+        {
+          "type": "p",
+          "text": "In board games, search turns consequences of known rules into training targets. In code, execution turns proposed programs into concrete results. Clear, repeatable checks let both systems reuse self-generated experience to improve later choices."
+        },
+        {
+          "type": "heading",
+          "text": "Deployment can also change the feedback distribution"
+        },
+        {
+          "type": "p",
+          "text": "[[performative-prediction|Performative prediction]] studies data changes caused by deployment. With strong convexity, joint smoothness and sufficiently weak distributional response, repeated retraining can stabilize without minimizing post-deployment risk. [[outside-echo-chamber|Miller et al.]] instead learn how data respond to deployment and use that response in optimization. Feedback can change with the model’s actions as well as evaluate them."
+        }
+      ]
+    },
+    {
+      "title": "Guide to the paper explainers",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Topic guide: [[feedback|How feedback can correct a learner]] (including board games and code)",
+          "type_plain": "note",
+          "text_plain": "Application examples: Silver et al. (2018), A general reinforcement learning algorithm that masters chess, shogi, and Go through self-play, Science; Le et al. (2022), CodeRL: Mastering Code Generation through Pretrained Models and Deep Reinforcement Learning, NeurIPS."
+        },
+        {
+          "type": "note",
+          "text": "Blue names open our English explainers. Original papers and reading locations appear at the end of each explainer. The Berk–Nash guide explains both belief fitting and optimal action.",
+          "text_plain": "Original publications cited in the review."
+        },
+        {
+          "type": "references",
+          "items": [
+            {
+              "id": 1,
+              "text": "Singh et al. (2010). Intrinsically Motivated Reinforcement Learning: An Evolutionary Perspective. IEEE TAMD.",
+              "url": "https://doi.org/10.1109/TAMD.2010.2051031"
+            },
+            {
+              "id": 2,
+              "text": "Ma et al. (2024). Eureka: Human-Level Reward Design via Coding Large Language Models. ICLR; arXiv v2.",
+              "url": "https://arxiv.org/abs/2310.12931v2"
+            },
+            {
+              "id": 3,
+              "text": "Everitt et al. (2016). Self-Modification of Policy and Utility Function in Rational Agents. AGI; v1.",
+              "url": "https://arxiv.org/abs/1605.03142v1"
+            },
+            {
+              "id": 4,
+              "text": "Hay et al. (2012). Selecting Computations: Theory and Applications. UAI.",
+              "url": "https://proceedings.mlr.press/r10/hay12a.html"
+            },
+            {
+              "id": 5,
+              "text": "Schmidhuber (2003/2006). Gödel Machines: Self-Referential Universal Problem Solvers Making Provably Optimal Self-Improvements. v5.",
+              "url": "https://arxiv.org/abs/cs/0309048v5"
+            },
+            {
+              "id": 6,
+              "text": "Blackwell (1953). Equivalent Comparisons of Experiments. Ann. Math. Stat. 24:265–272.",
+              "url": "https://doi.org/10.1214/aoms/1177729032"
+            },
+            {
+              "id": 7,
+              "text": "Klenske & Hennig (2016). Dual Control for Approximate Bayesian Reinforcement Learning. JMLR 17(127).",
+              "url": "https://jmlr.org/papers/v17/15-162.html"
+            },
+            {
+              "id": 8,
+              "text": "Russo & Van Roy (2014). Learning to Optimize via Information-Directed Sampling. NeurIPS.",
+              "url": "https://papers.neurips.cc/paper/5463-learning-to-optimize-via-information-directed-sampling.pdf"
+            },
+            {
+              "id": 9,
+              "text": "Xu et al. (2020). A Theory of Usable Information under Computational Constraints. ICLR; v1.",
+              "url": "https://arxiv.org/abs/2002.10689v1"
+            },
+            {
+              "id": 10,
+              "text": "Abbe et al. (2022). The merged-staircase property: a necessary and nearly sufficient condition for SGD learning of sparse functions on two-layer neural networks. COLT.",
+              "url": "https://proceedings.mlr.press/v178/abbe22a.html"
+            },
+            {
+              "id": 11,
+              "text": "Schmidhuber (2009). Driven by Compression Progress: A Simple Principle Explains Essential Aspects of Subjective Beauty, Novelty, Surprise, Interestingness, Attention, Curiosity, Creativity, Art, Science, Music, Jokes. arXiv v2.",
+              "url": "https://arxiv.org/abs/0812.4360v2"
+            },
+            {
+              "id": 12,
+              "text": "Finzi et al. (2026). From Entropy to Epiplexity: Rethinking Information for Computationally Bounded Intelligence. preprint v2.",
+              "url": "https://arxiv.org/abs/2601.03220v2"
+            },
+            {
+              "id": 13,
+              "text": "Schick et al. (2023). Toolformer: Language Models Can Teach Themselves to Use Tools. NeurIPS; version consulted: v1.",
+              "url": "https://arxiv.org/abs/2302.04761v1"
+            },
+            {
+              "id": 14,
+              "text": "Wang et al. (2024; first version 2023). Voyager: An Open-Ended Embodied Agent with Large Language Models. TMLR; version consulted: v2.",
+              "url": "https://arxiv.org/abs/2305.16291v2"
+            },
+            {
+              "id": 15,
+              "text": "Zhao et al. (2026). Memento 3: Model-Based Recursive Self-Improvement through Reflective Rulebooks. preprint v1.",
+              "url": "https://arxiv.org/abs/2610.11794v1"
+            },
+            {
+              "id": 16,
+              "text": "Gelman & Shalizi (2013). Philosophy and the practice of Bayesian statistics. BJMSP 66:8–38; author version consulted: v3.",
+              "url": "https://arxiv.org/abs/1006.3868v3"
+            },
+            {
+              "id": 17,
+              "text": "Andrychowicz et al. (2016). Learning to learn by gradient descent by gradient descent. NeurIPS; v2.",
+              "url": "https://arxiv.org/abs/1606.04474v2"
+            },
+            {
+              "id": 18,
+              "text": "Zoph & Le (2017). Neural Architecture Search with Reinforcement Learning. ICLR; v2.",
+              "url": "https://arxiv.org/abs/1611.01578v2"
+            },
+            {
+              "id": 19,
+              "text": "Wang et al. (2016/2017). Learning to reinforcement learn. arXiv:1611.05763v3.",
+              "url": "https://arxiv.org/abs/1611.05763v3"
+            },
+            {
+              "id": 20,
+              "text": "Zelikman et al. (2024). Self-Taught Optimizer (STOP): Recursively Self-Improving Code Generation. COLM; v3.",
+              "url": "https://arxiv.org/abs/2310.02304v3"
+            },
+            {
+              "id": 21,
+              "text": "Zhang et al. (2025/2026). Darwin Gödel Machine: Open-Ended Evolution of Self-Improving Agents. arXiv v3.",
+              "url": "https://arxiv.org/abs/2505.22954v3"
+            },
+            {
+              "id": 22,
+              "text": "Zhang et al. (2026). Hyperagents. arXiv:2603.19461v1, preprint.",
+              "url": "https://arxiv.org/abs/2603.19461v1"
+            },
+            {
+              "id": 23,
+              "text": "Dohare et al. (2024). Loss of plasticity in deep continual learning. Nature 632:768–774; methods checked in author version v3.",
+              "url": "https://arxiv.org/abs/2306.13812v3"
+            },
+            {
+              "id": 24,
+              "text": "Fudenberg & Levine (1993). Self-Confirming Equilibrium. Econometrica 61:523–545.",
+              "url": "https://economics.mit.edu/sites/default/files/inline-files/sce.pdf"
+            },
+            {
+              "id": 25,
+              "text": "Esponda & Pouzo (2016). Berk–Nash Equilibrium: A Framework for Modeling Agents with Misspecified Models. Econometrica; v4, including the 2019 corrigendum.",
+              "url": "https://arxiv.org/abs/1411.1152v4"
+            },
+            {
+              "id": 26,
+              "text": "Fudenberg, Lanzani & Strack (2021). Limit Points of Endogenous Misspecified Learning. Econometrica 89:1065–1098.",
+              "url": "https://doi.org/10.3982/ECTA18508"
+            },
+            {
+              "id": 27,
+              "text": "Perdomo et al. (2020). Performative Prediction. ICML.",
+              "url": "https://proceedings.mlr.press/v119/perdomo20a.html"
+            },
+            {
+              "id": 28,
+              "text": "Miller, Perdomo & Zrnic (2021). Outside the Echo Chamber: Optimizing the Performative Risk. ICML.",
+              "url": "https://proceedings.mlr.press/v139/miller21a.html"
+            },
+            {
+              "id": 29,
+              "text": "Shumailov et al. (2024). AI models collapse when trained on recursively generated data. Nature 631:755–759; including the 2025 correction.",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11269175/"
+            },
+            {
+              "id": 30,
+              "text": "Gerstgrasser et al. (2024). Is Model Collapse Inevitable? Breaking the Curse of Recursion by Accumulating Real and Synthetic Data. arXiv v2.",
+              "url": "https://arxiv.org/abs/2404.01413v2"
+            },
+            {
+              "id": 31,
+              "text": "Gao, Schulman & Hilton (2023). Scaling Laws for Reward Model Overoptimization. ICML.",
+              "url": "https://proceedings.mlr.press/v202/gao23h.html"
+            },
+            {
+              "id": 32,
+              "text": "Arora et al. (2017). Generalization and Equilibrium in Generative Adversarial Nets (GANs). ICML.",
+              "url": "https://proceedings.mlr.press/v70/arora17a.html"
+            }
+          ],
+          "index_mode": true
+        }
+      ],
+      "title_plain": "References"
+    }
+  ],
+  "navigation": [
+    {
+      "label": "Open the reading map and paper explainers",
+      "plain_label": "Companion reading map and paper explainers",
+      "registry_target": "hub",
+      "url": "https://chatgpt.com/space/page_3151875ec40081918804a698903f299f",
+      "hide_in_plain": true
+    }
+  ],
+  "_translation_status": "Translated, independently reviewed, and rendered in both plain and English-explainer-linked six-page editions."
+}
