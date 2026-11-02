@@ -25,8 +25,8 @@ DESCRIPTIONS = {
  'feedback': {'en':'Why can the same feedback loop support progress, sustain error or lose information?', 'zh':'为什么反馈闭环既能支持进步，也会维持错误或丢失信息？'},
 }
 LABELS = {
- 'en': {'overview':'Review', 'library':'Reading map', 'search':'Search articles', 'search_hint':'Title, concept, or paper', 'toc':'On this page', 'related':'Continue reading', 'source':'Original paper', 'topic':'Cross-cutting topic', 'article':'Literature note', 'skip':'Skip to content', 'download':'Download the review', 'plain':'Plain PDF', 'linked':'Linked PDF', 'all':'All articles', 'results':'results', 'empty':'No matching articles. Try another term.', 'close':'Close', 'menu':'Contents', 'back':'Back to reading map', 'reading':'min read', 'footer':'RSI, Feedback and Learning Dynamics', 'intro':'A literature review connecting classic theory with modern systems that modify their goals, interaction, and learning mechanisms.', 'open':'Read the review', 'explore':'Explore the literature', 'theme':'One feedback problem, several mechanisms', 'theme_text':'Action selection shapes evidence; representations shape what evidence can correct; learning rules shape whether correction takes hold.', 'zh':'Chinese', 'en':'English'},
- 'zh': {'overview':'主综述', 'library':'阅读地图', 'search':'搜索文章', 'search_hint':'标题、概念或文献', 'toc':'本文目录', 'related':'接着阅读', 'source':'原论文', 'topic':'贯通主题', 'article':'文献解读', 'skip':'跳到正文', 'download':'下载主综述', 'plain':'纯净版 PDF', 'linked':'链接版 PDF', 'all':'全部文章', 'results':'篇结果', 'empty':'没有匹配的文章，请尝试其他词。', 'close':'关闭', 'menu':'目录', 'back':'返回阅读地图', 'reading':'分钟', 'footer':'RSI、反馈与学习动力学', 'intro':'从经典理论到现代自修改系统，围绕价值、认识与学习机制，理解反馈为何支持进步，也可能维持错误。', 'open':'阅读主综述', 'explore':'查看文献地图', 'theme':'同一个反馈问题，不同的形成机制', 'theme_text':'行动决定接触哪些证据，表示决定能读出什么差别，学习规则决定这些差别能否带来纠正。', 'zh':'中文', 'en':'英文'},
+ 'en': {'overview':'Review', 'library':'Reading map', 'search':'Search articles', 'search_hint':'Title, concept, or paper', 'toc':'On this page', 'related':'Continue reading', 'source':'Original paper', 'topic':'Cross-cutting topic', 'article':'Literature note', 'skip':'Skip to content', 'download':'Download the review', 'all':'All articles', 'results':'results', 'empty':'No matching articles. Try another term.', 'close':'Close', 'menu':'Contents', 'back':'Back to reading map', 'reading':'min read', 'footer':'RSI, Feedback and Learning Dynamics', 'intro':'A literature review connecting classic theory with modern systems that modify their goals, interaction, and learning mechanisms.', 'open':'Read the review', 'explore':'Explore the literature', 'theme':'One feedback problem, several mechanisms', 'theme_text':'Action selection shapes evidence; representations shape what evidence can correct; learning rules shape whether correction takes hold.', 'zh':'Chinese', 'en':'English'},
+ 'zh': {'overview':'主综述', 'library':'阅读地图', 'search':'搜索文章', 'search_hint':'标题、概念或文献', 'toc':'本文目录', 'related':'接着阅读', 'source':'原论文', 'topic':'贯通主题', 'article':'文献解读', 'skip':'跳到正文', 'download':'下载主综述', 'all':'全部文章', 'results':'篇结果', 'empty':'没有匹配的文章，请尝试其他词。', 'close':'关闭', 'menu':'目录', 'back':'返回阅读地图', 'reading':'分钟', 'footer':'RSI、反馈与学习动力学', 'intro':'从经典理论到现代自修改系统，围绕价值、认识与学习机制，理解反馈为何支持进步，也可能维持错误。', 'open':'阅读主综述', 'explore':'查看文献地图', 'theme':'同一个反馈问题，不同的形成机制', 'theme_text':'行动决定接触哪些证据，表示决定能读出什么差别，学习规则决定这些差别能否带来纠正。', 'zh':'中文', 'en':'英文'},
 }
 
 def esc(x): return html.escape(str(x), quote=True)
@@ -49,9 +49,9 @@ def snapshot(source):
         for p in src.glob('*.md'): shutil.copy2(p,dest/p.name)
     (target/'downloads').mkdir(exist_ok=True)
     for lang in LANGS:
-        for variant in ('plain','linked'):
-            pdf=source/'exports'/f'{lang}_{variant}'/'review.pdf'
-            if pdf.exists():shutil.copy2(pdf,target/'downloads'/f'rsi-review-{lang}-{variant}.pdf')
+        pdf=source/'exports'/f'{lang}_plain'/'review.pdf'
+        if not pdf.exists():raise RuntimeError(f'Missing review PDF: {pdf}')
+        shutil.copy2(pdf,target/'downloads'/f'rsi-review-{lang}-plain.pdf')
     return target
 
 def source_documents(source):
@@ -124,7 +124,7 @@ def header(lang,prefix,page_path):
 
 def downloads(lang,prefix):
     L=LABELS[lang]
-    links=''.join(f'<a href="{prefix}downloads/rsi-review-{code}-{variant}.pdf" download><span>{L[code]} · {L[variant]}</span><span aria-hidden="true">↓</span></a>' for code in LANGS for variant in ('plain','linked'))
+    links=''.join(f'<a href="{prefix}downloads/rsi-review-{code}-plain.pdf" download><span>{L[code]} · PDF</span><span aria-hidden="true">↓</span></a>' for code in LANGS)
     return f'<section class="downloads" id="downloads"><h2>{L["download"]}</h2><div class="download-grid">{links}</div></section>'
 
 def shell(lang,prefix,page_path,title,body,toc=None):
@@ -212,10 +212,12 @@ def main():
     DIST.mkdir(exist_ok=True);(DIST/'downloads').mkdir(exist_ok=True)
     shutil.copytree(HERE/'assets',DIST/'assets',dirs_exist_ok=True)
     for lang in LANGS:
-        for variant in ('plain','linked'):
-            name=f'rsi-review-{lang}-{variant}.pdf';pdf=source/'downloads'/name
-            if not pdf.exists():raise RuntimeError(f'Missing PDF in source snapshot: {pdf}')
-            shutil.copy2(pdf,DIST/'downloads'/name)
+        # Remove files left by an older four-version build, including snapshots.
+        for folder in (source/'downloads', DIST/'downloads'):
+            (folder/f'rsi-review-{lang}-linked.pdf').unlink(missing_ok=True)
+        name=f'rsi-review-{lang}-plain.pdf';pdf=source/'downloads'/name
+        if not pdf.exists():raise RuntimeError(f'Missing PDF in source snapshot: {pdf}')
+        shutil.copy2(pdf,DIST/'downloads'/name)
     search=[]
     for lang in LANGS:
         base=DIST/lang;(base/'articles').mkdir(parents=True,exist_ok=True)
@@ -228,6 +230,6 @@ def main():
     (DIST/'assets/search-index.js').write_text('window.RSI_SEARCH = '+json.dumps(search,ensure_ascii=False).replace('</','<\\/')+';\n',encoding='utf-8')
     (DIST/'index.html').write_text('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="refresh" content="0;url=en/index.html"><title>RSI Literature</title></head><body><a href="en/index.html">Read the literature review in English</a> · <a href="zh/index.html">中文</a></body></html>',encoding='utf-8')
     (DIST/'.nojekyll').write_text('')
-    print(f'Built {len(docs)} articles × 2 languages; 73 HTML pages. Math: native MathML. Four PDFs copied from sources/downloads.')
+    print(f'Built {len(docs)} articles × 2 languages; 73 HTML pages. Math: native MathML. Two cited review PDFs copied from sources/downloads.')
 
 if __name__=='__main__':main()

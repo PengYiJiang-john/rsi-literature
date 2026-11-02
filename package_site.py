@@ -17,7 +17,7 @@ def main():
         for folder in ['.github','assets','sources','dist']:
             for file in sorted((HERE/folder).rglob('*')):
                 if file.is_file():z.write(file,file.relative_to(HERE))
-        for name in ['README.md','build_site.py','validate_site.py','package_site.py','validation.json']:
+        for name in ['README.md','.gitignore','build_site.py','validate_site.py','package_site.py','validation.json']:
             z.write(HERE/name,name)
     print(a.output)
 

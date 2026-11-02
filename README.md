@@ -4,7 +4,7 @@ A static reading site for **RSI, Feedback and Learning Dynamics**. English is th
 
 ## Read locally
 
-Open `dist/index.html` in a browser. Articles, search, styles and formulas work without a server or an internet connection. Original-paper links require an internet connection. The four review PDFs are in `dist/downloads/`.
+Open `dist/index.html` in a browser. Articles, search, styles and formulas work without a server or an internet connection. Original-paper links require an internet connection. The English and Chinese review PDFs, with in-text citations and references, are in `dist/downloads/`.
 
 The site supports keyboard navigation, `/` or `Ctrl/Cmd + K` for search, section navigation, mobile layouts and browser printing. Formulas are converted to native MathML at build time and displayed by current browsers; no remote math library or font download is needed.
 
@@ -34,7 +34,7 @@ To build, validate and produce a self-contained upload ZIP:
 python package_site.py
 ```
 
-The archive includes its own content snapshot and all four PDFs; it does not rely on a parent directory. The provided archive has also been extracted and rebuilt in a separate directory to check this independence. Automated checks cover local links, paired language pages, search coverage and rendered formulas. A browser visual inspection has not been run in this environment.
+The archive includes its own content snapshot and both review PDFs; it does not rely on a parent directory. The provided archive has also been extracted and rebuilt in a separate directory to check this independence. Automated checks cover local links, paired language pages, search coverage and rendered formulas. A browser visual inspection has not been run in this environment.
 
 `sources/` is a self-contained snapshot of the maintained Chinese and English Markdown, main review JSON and document registry. A standalone rebuild reads that snapshot. In the full research workspace, refresh the snapshot and rebuild with:
 
@@ -42,14 +42,12 @@ The archive includes its own content snapshot and all four PDFs; it does not rel
 python site/build_site.py --source /absolute/path/to/rsi_literature
 ```
 
-The builder copies these four PDFs from `sources/downloads/` to `dist/downloads/` on every build:
+The builder copies these two PDFs from `sources/downloads/` to `dist/downloads/` on every build:
 
 - `rsi-review-en-plain.pdf`
-- `rsi-review-en-linked.pdf`
 - `rsi-review-zh-plain.pdf`
-- `rsi-review-zh-linked.pdf`
 
-Refreshing from the full research workspace also refreshes the PDF snapshot from `exports/{en,zh}_{plain,linked}/review.pdf`. A missing PDF fails the build rather than leaving a broken download link.
+Refreshing from the full research workspace also refreshes the PDF snapshot from `exports/{en,zh}_plain/review.pdf`. A missing PDF fails the build rather than leaving a broken download link.
 
 Articles keep their stable slugs. Markdown cross-links resolve to local article pages in the current language; source-paper links remain external. Search data is an ordinary local script, so it also works when pages are opened with `file://`.
 
@@ -63,3 +61,5 @@ Articles keep their stable slugs. Markdown cross-links resolve to local article 
 - `.github/workflows/pages.yml`: GitHub Pages workflow, deploying `dist/`.
 
 The build does not contact or update ChatGPT Pages, GitHub or any hosting service.
+
+The website package contains only the English and Chinese PDFs with conventional citations and references. The editions linking to external explainer Pages are excluded from both the downloads and the source snapshot. Literature-note pages and their navigation remain available on the website.

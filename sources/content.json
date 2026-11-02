@@ -164,7 +164,8 @@
       "blocks": [
         {
           "type": "p",
-          "text": "现代系统通过不同方式改变与世界的交互。Toolformer 学会使用既有工具，Voyager 把学到的技能保存成新工具，Memento 3 则修改用来预测行动后果的世界模型。三者分别回答怎样调用、怎样复用、怎样理解。"
+          "text": "现代系统通过不同方式改变与世界的交互。Toolformer 学会使用既有工具，Voyager 把学到的技能保存成新工具，Memento 3 则修改用来预测行动后果的世界模型。三者分别回答怎样调用、怎样复用、怎样理解。",
+          "text_plain": "现代系统通过不同方式改变与世界的交互。Toolformer[13] 学会使用既有工具，Voyager[14] 把学到的技能保存成新工具，Memento 3[15] 则修改用来预测行动后果的世界模型。三者分别回答怎样调用、怎样复用、怎样理解。"
         },
         {
           "type": "heading",
@@ -225,7 +226,8 @@
         },
         {
           "type": "p",
-          "text": "DGM 仍由固定的外层流程生成修改指令。[[hyperagents|HyperAgents]]把任务程序和负责修改它的程序一起开放给系统编辑，允许错误诊断、方案生成和后续修改的组织方式发生变化。DGM 依靠编程能力同时支持解题和自修改；HyperAgents 进一步检验这类改进能否迁移到其他任务。两者的推进关系在于可修改范围和迁移证据。"
+          "text": "DGM 仍由固定的外层流程生成修改指令。[[hyperagents|HyperAgents]]把任务程序和负责修改它的程序一起开放给系统编辑，允许错误诊断、方案生成和后续修改的组织方式发生变化。DGM 依靠编程能力同时支持解题和自修改；HyperAgents 进一步检验这类改进能否迁移到其他任务。两者的推进关系在于可修改范围和迁移证据。",
+          "text_plain": "DGM[21] 仍由固定的外层流程生成修改指令。[[hyperagents|HyperAgents]]把任务程序和负责修改它的程序一起开放给系统编辑，允许错误诊断、方案生成和后续修改的组织方式发生变化。DGM 依靠编程能力同时支持解题和自修改；HyperAgents 进一步检验这类改进能否迁移到其他任务。两者的推进关系在于可修改范围和迁移证据。"
         },
         {
           "type": "p",
@@ -237,7 +239,8 @@
         },
         {
           "type": "p",
-          "text": "Gödel machine 要求先证明修改有益；DGM 等系统先尝试修改，再用任务实验判断。历史版本即使暂时较弱，也可能被保留，供以后继续修改。基础模型、外部评价和部分版本选择规则仍固定。这使递归改进可以在有限任务上检验，其有效范围也由这些实验条件决定。"
+          "text": "Gödel machine 要求先证明修改有益；DGM 等系统先尝试修改，再用任务实验判断。历史版本即使暂时较弱，也可能被保留，供以后继续修改。基础模型、外部评价和部分版本选择规则仍固定。这使递归改进可以在有限任务上检验，其有效范围也由这些实验条件决定。",
+          "text_plain": "Gödel machine[5] 要求先证明修改有益；DGM[21] 等系统先尝试修改，再用任务实验判断。历史版本即使暂时较弱，也可能被保留，供以后继续修改。基础模型、外部评价和部分版本选择规则仍固定。这使递归改进可以在有限任务上检验，其有效范围也由这些实验条件决定。"
         },
         {
           "type": "heading",
@@ -319,7 +322,8 @@
         },
         {
           "type": "p",
-          "text": "[[model-collapse|模型崩溃]]追问：下一轮数据由谁产生？上一代模型若成为新数据源，采样遗漏与拟合误差会进入后代。[[data-accumulation|数据累积研究]]通过保留原始与历代数据改变这条传递路径。这与Berk–Nash的真实但选择性反馈、GAN的真实样本参照形成比较：反馈来源、证据覆盖与分辨能力共同影响纠错，各项结论仍依赖各自设定。"
+          "text": "[[model-collapse|模型崩溃]]追问：下一轮数据由谁产生？上一代模型若成为新数据源，采样遗漏与拟合误差会进入后代。[[data-accumulation|数据累积研究]]通过保留原始与历代数据改变这条传递路径。这与Berk–Nash的真实但选择性反馈、GAN的真实样本参照形成比较：反馈来源、证据覆盖与分辨能力共同影响纠错，各项结论仍依赖各自设定。",
+          "text_plain": "[[model-collapse|模型崩溃]]追问：下一轮数据由谁产生？上一代模型若成为新数据源，采样遗漏与拟合误差会进入后代。[[data-accumulation|数据累积研究]]通过保留原始与历代数据改变这条传递路径。这与Berk–Nash的真实但选择性反馈、GAN的真实样本参照[35]形成比较：反馈来源、证据覆盖与分辨能力共同影响纠错，各项结论仍依赖各自设定。"
         },
         {
           "type": "heading",
@@ -327,7 +331,8 @@
         },
         {
           "type": "p",
-          "text": "[[feedback|棋类和代码的反馈分析]]给出两个具体例子。AlphaZero自己选择对局，但胜负由规则结算；网络引导搜索，搜索与对局结果又训练网络。CodeRL自己生成程序，但编译和测试给出执行结果，评价网络再把结果转成训练信号。自己产生候选，不等于自己决定候选正确。"
+          "text": "[[feedback|棋类和代码的反馈分析]]给出两个具体例子。AlphaZero自己选择对局，但胜负由规则结算；网络引导搜索，搜索与对局结果又训练网络。CodeRL自己生成程序，但编译和测试给出执行结果，评价网络再把结果转成训练信号。自己产生候选，不等于自己决定候选正确。",
+          "text_plain": "AlphaZero[33]自己选择对局，但胜负由规则结算；网络引导搜索，搜索与对局结果又训练网络。CodeRL[34]自己生成程序，但编译和测试给出执行结果，评价网络再把结果转成训练信号。自己产生候选，不等于自己决定候选正确。"
         },
         {
           "type": "p",
@@ -350,12 +355,14 @@
           "type": "p",
           "text": "主题解读：[[feedback|反馈怎样纠正学习者]]（含棋类与代码）",
           "text_plain": "应用来源： Silver et al. (2018), A general reinforcement learning algorithm that masters chess, shogi, and Go through self-play, Science; Le et al. (2022), CodeRL: Mastering Code Generation through Pretrained Models and Deep Reinforcement Learning, NeurIPS.",
-          "type_plain": "note"
+          "type_plain": "note",
+          "hide_in_plain": true
         },
         {
           "type": "note",
           "text": "点击文献名称阅读独立解读。",
-          "text_plain": ""
+          "text_plain": "",
+          "hide_in_plain": true
         },
         {
           "type": "references",
@@ -521,7 +528,184 @@
               "url": "https://proceedings.mlr.press/v70/arora17a.html"
             }
           ],
-          "index_mode": true
+          "index_mode": true,
+          "items_plain": [
+            {
+              "id": 1,
+              "text": "Singh et al. (2010). Intrinsically Motivated Reinforcement Learning: An Evolutionary Perspective. IEEE TAMD.",
+              "url": "https://doi.org/10.1109/TAMD.2010.2051031"
+            },
+            {
+              "id": 2,
+              "text": "Ma et al. (2024). Eureka: Human-Level Reward Design via Coding Large Language Models. ICLR; arXiv v2.",
+              "url": "https://arxiv.org/abs/2310.12931v2"
+            },
+            {
+              "id": 3,
+              "text": "Everitt et al. (2016). Self-Modification of Policy and Utility Function in Rational Agents. AGI; v1.",
+              "url": "https://arxiv.org/abs/1605.03142v1"
+            },
+            {
+              "id": 4,
+              "text": "Hay et al. (2012). Selecting Computations: Theory and Applications. UAI.",
+              "url": "https://proceedings.mlr.press/r10/hay12a.html"
+            },
+            {
+              "id": 5,
+              "text": "Schmidhuber (2003/2006). Gödel Machines: Self-Referential Universal Problem Solvers Making Provably Optimal Self-Improvements. v5.",
+              "url": "https://arxiv.org/abs/cs/0309048v5"
+            },
+            {
+              "id": 6,
+              "text": "Blackwell (1953). Equivalent Comparisons of Experiments. Ann. Math. Stat. 24:265–272.",
+              "url": "https://doi.org/10.1214/aoms/1177729032"
+            },
+            {
+              "id": 7,
+              "text": "Klenske & Hennig (2016). Dual Control for Approximate Bayesian Reinforcement Learning. JMLR 17(127).",
+              "url": "https://jmlr.org/papers/v17/15-162.html"
+            },
+            {
+              "id": 8,
+              "text": "Russo & Van Roy (2014). Learning to Optimize via Information-Directed Sampling. NeurIPS.",
+              "url": "https://papers.neurips.cc/paper/5463-learning-to-optimize-via-information-directed-sampling.pdf"
+            },
+            {
+              "id": 9,
+              "text": "Xu et al. (2020). A Theory of Usable Information under Computational Constraints. ICLR; v1.",
+              "url": "https://arxiv.org/abs/2002.10689v1"
+            },
+            {
+              "id": 10,
+              "text": "Abbe et al. (2022). The merged-staircase property: a necessary and nearly sufficient condition for SGD learning of sparse functions on two-layer neural networks. COLT.",
+              "url": "https://proceedings.mlr.press/v178/abbe22a.html"
+            },
+            {
+              "id": 11,
+              "text": "Schmidhuber (2009). Driven by Compression Progress: A Simple Principle Explains Essential Aspects of Subjective Beauty, Novelty, Surprise, Interestingness, Attention, Curiosity, Creativity, Art, Science, Music, Jokes. arXiv v2.",
+              "url": "https://arxiv.org/abs/0812.4360v2"
+            },
+            {
+              "id": 12,
+              "text": "Finzi et al. (2026). From Entropy to Epiplexity: Rethinking Information for Computationally Bounded Intelligence. 预印本 v2.",
+              "url": "https://arxiv.org/abs/2601.03220v2"
+            },
+            {
+              "id": 13,
+              "text": "Schick et al. (2023). Toolformer: Language Models Can Teach Themselves to Use Tools. NeurIPS; 核对v1.",
+              "url": "https://arxiv.org/abs/2302.04761v1"
+            },
+            {
+              "id": 14,
+              "text": "Wang et al. (2024; 初稿2023). Voyager: An Open-Ended Embodied Agent with Large Language Models. TMLR; 核对v2.",
+              "url": "https://arxiv.org/abs/2305.16291v2"
+            },
+            {
+              "id": 15,
+              "text": "Zhao et al. (2026). Memento 3: Model-Based Recursive Self-Improvement through Reflective Rulebooks. 预印本 v1.",
+              "url": "https://arxiv.org/abs/2610.11794v1"
+            },
+            {
+              "id": 16,
+              "text": "Gelman & Shalizi (2013). Philosophy and the practice of Bayesian statistics. BJMSP 66:8–38; 核对作者v3.",
+              "url": "https://arxiv.org/abs/1006.3868v3"
+            },
+            {
+              "id": 17,
+              "text": "Andrychowicz et al. (2016). Learning to learn by gradient descent by gradient descent. NeurIPS; v2.",
+              "url": "https://arxiv.org/abs/1606.04474v2"
+            },
+            {
+              "id": 18,
+              "text": "Zoph & Le (2017). Neural Architecture Search with Reinforcement Learning. ICLR; v2.",
+              "url": "https://arxiv.org/abs/1611.01578v2"
+            },
+            {
+              "id": 19,
+              "text": "Wang et al. (2016/2017). Learning to reinforcement learn. arXiv:1611.05763v3.",
+              "url": "https://arxiv.org/abs/1611.05763v3"
+            },
+            {
+              "id": 20,
+              "text": "Zelikman et al. (2024). Self-Taught Optimizer (STOP): Recursively Self-Improving Code Generation. COLM; v3.",
+              "url": "https://arxiv.org/abs/2310.02304v3"
+            },
+            {
+              "id": 21,
+              "text": "Zhang et al. (2025/2026). Darwin Gödel Machine: Open-Ended Evolution of Self-Improving Agents. arXiv v3.",
+              "url": "https://arxiv.org/abs/2505.22954v3"
+            },
+            {
+              "id": 22,
+              "text": "Zhang et al. (2026). Hyperagents. arXiv:2603.19461v1，预印本.",
+              "url": "https://arxiv.org/abs/2603.19461v1"
+            },
+            {
+              "id": 23,
+              "text": "Dohare et al. (2024). Loss of plasticity in deep continual learning. Nature 632:768–774; 方法核对作者v3.",
+              "url": "https://arxiv.org/abs/2306.13812v3"
+            },
+            {
+              "id": 24,
+              "text": "Fudenberg & Levine (1993). Self-Confirming Equilibrium. Econometrica 61:523–545.",
+              "url": "https://economics.mit.edu/sites/default/files/inline-files/sce.pdf"
+            },
+            {
+              "id": 25,
+              "text": "Esponda & Pouzo (2016). Berk–Nash Equilibrium: A Framework for Modeling Agents with Misspecified Models. Econometrica; v4含2019勘误.",
+              "url": "https://arxiv.org/abs/1411.1152v4"
+            },
+            {
+              "id": 26,
+              "text": "Fudenberg, Lanzani & Strack (2021). Limit Points of Endogenous Misspecified Learning. Econometrica 89:1065–1098.",
+              "url": "https://doi.org/10.3982/ECTA18508"
+            },
+            {
+              "id": 27,
+              "text": "Perdomo et al. (2020). Performative Prediction. ICML.",
+              "url": "https://proceedings.mlr.press/v119/perdomo20a.html"
+            },
+            {
+              "id": 28,
+              "text": "Miller, Perdomo & Zrnic (2021). Outside the Echo Chamber: Optimizing the Performative Risk. ICML.",
+              "url": "https://proceedings.mlr.press/v139/miller21a.html"
+            },
+            {
+              "id": 29,
+              "text": "Shumailov et al. (2024). AI models collapse when trained on recursively generated data. Nature 631:755–759; 含2025修订.",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11269175/"
+            },
+            {
+              "id": 30,
+              "text": "Gerstgrasser et al. (2024). Is Model Collapse Inevitable? Breaking the Curse of Recursion by Accumulating Real and Synthetic Data. arXiv v2.",
+              "url": "https://arxiv.org/abs/2404.01413v2"
+            },
+            {
+              "id": 31,
+              "text": "Gao, Schulman & Hilton (2023). Scaling Laws for Reward Model Overoptimization. ICML.",
+              "url": "https://proceedings.mlr.press/v202/gao23h.html"
+            },
+            {
+              "id": 32,
+              "text": "Arora et al. (2017). Generalization and Equilibrium in Generative Adversarial Nets (GANs). ICML.",
+              "url": "https://proceedings.mlr.press/v70/arora17a.html"
+            },
+            {
+              "id": 33,
+              "text": "Silver et al. (2018). A general reinforcement learning algorithm that masters chess, shogi, and Go through self-play. Science.",
+              "url": "https://doi.org/10.1126/science.aar6404"
+            },
+            {
+              "id": 34,
+              "text": "Le et al. (2022). CodeRL: Mastering Code Generation through Pretrained Models and Deep Reinforcement Learning. NeurIPS.",
+              "url": "https://papers.neurips.cc/paper_files/paper/2022/file/8636419dea1aa9fbd25fc4248e702da4-Paper-Conference.pdf"
+            },
+            {
+              "id": 35,
+              "text": "Goodfellow et al. (2014). Generative Adversarial Nets. NeurIPS.",
+              "url": "https://proceedings.neurips.cc/paper/2014/hash/f033ed80deb0234979a61f95710dbe25-Abstract.html"
+            }
+          ]
         }
       ],
       "title_plain": "参考文献"

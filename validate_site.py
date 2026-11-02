@@ -60,9 +60,12 @@ def main():
             source=ROOT/'sources'/d['source_path'] if lang=='zh' else ROOT/'sources/translations/en'/d['source_path']
             expected=len(re.findall(r'^```math\s*$',source.read_text(),re.M))
             if path.exists() and pages[path.resolve()].math<expected:errors.append(f'Missing rendered equations: {path}')
-        for variant in ['plain','linked']:
-            p=DIST/'downloads'/f'rsi-review-{lang}-{variant}.pdf'
-            if not p.exists() or not p.read_bytes().startswith(b'%PDF-'):errors.append(f'Missing or invalid PDF: {p}')
+        p=DIST/'downloads'/f'rsi-review-{lang}-plain.pdf'
+        if not p.exists() or not p.read_bytes().startswith(b'%PDF-'):errors.append(f'Missing or invalid PDF: {p}')
+    expected_pdfs={f'rsi-review-{lang}-plain.pdf' for lang in ['en','zh']}
+    for folder in (DIST/'downloads',ROOT/'sources/downloads'):
+        if {p.name for p in folder.glob('*.pdf')}!=expected_pdfs:
+            errors.append(f'Downloads must contain only the two cited review PDFs: {folder}')
     if 'url=en/index.html' not in (DIST/'index.html').read_text():errors.append('Root does not default to English')
     search=(DIST/'assets/search-index.js').read_text()
     data=json.loads(search.removeprefix('window.RSI_SEARCH = ').rstrip(';\n'))
@@ -72,7 +75,7 @@ def main():
         if indexed!={d['slug'] for d in docs}:errors.append(f'Incomplete search index: {lang}')
     app=(DIST/'assets/app.js').read_text()
     if re.search(r'\bfetch\s*\(|XMLHttpRequest',app):errors.append('Search depends on network/file fetch')
-    stats={'html_pages':len(paths),'articles_per_language':len(docs),'local_references_checked':checked,'rendered_math_blocks':sum(p.math for p in pages.values()),'search_entries':len(data),'pdfs':4,'default_language':'en','relative_project_paths':True,'native_mathml':True,'browser_visual_qa':'not run; no supported browser preview available','errors':errors,'warnings':warnings}
+    stats={'html_pages':len(paths),'articles_per_language':len(docs),'local_references_checked':checked,'rendered_math_blocks':sum(p.math for p in pages.values()),'search_entries':len(data),'pdfs':len(list((DIST/'downloads').glob('*.pdf'))),'default_language':'en','relative_project_paths':True,'native_mathml':True,'browser_visual_qa':'not run; no supported browser preview available','errors':errors,'warnings':warnings}
     (ROOT/'validation.json').write_text(json.dumps(stats,ensure_ascii=False,indent=2)+'\n')
     print(json.dumps(stats,ensure_ascii=False,indent=2))
     return bool(errors)
